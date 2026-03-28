@@ -48,6 +48,7 @@ h3{font-size:1rem;font-weight:600;margin-bottom:0.75rem}
 /* Sections */
 .section{display:none}
 .section.active{display:block}
+.section canvas{max-width:100%}
 
 /* Insights */
 .insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:1rem}
@@ -98,11 +99,11 @@ select:focus{outline:2px solid var(--accent);outline-offset:1px}
 
 <!-- MAIN NAV -->
 <div class="tabs" id="main-tabs">
-  <div class="tab active" onclick="showTab('annual')">Annual overview</div>
-  <div class="tab" onclick="showTab('quarterly')">Quarterly breakdown</div>
-  <div class="tab" onclick="showTab('groups')">Group deep-dive</div>
-  <div class="tab" onclick="showTab('geo')">Geography</div>
-  <div class="tab" onclick="showTab('pricing')">Pricing & fees</div>
+  <div class="tab active" onclick="showTab('annual',this)">Annual overview</div>
+  <div class="tab" onclick="showTab('quarterly',this)">Quarterly breakdown</div>
+  <div class="tab" onclick="showTab('groups',this)">Group deep-dive</div>
+  <div class="tab" onclick="showTab('geo',this)">Geography</div>
+  <div class="tab" onclick="showTab('pricing',this)">Pricing & fees</div>
 </div>
 
 <!-- ANNUAL -->
@@ -134,10 +135,10 @@ select:focus{outline:2px solid var(--accent);outline-offset:1px}
 <!-- QUARTERLY -->
 <div class="section" id="sec-quarterly">
   <div class="q-tabs">
-    <div class="q-tab active" onclick="showQuarter('Q1')">Q1</div>
-    <div class="q-tab" onclick="showQuarter('Q2')">Q2</div>
-    <div class="q-tab" onclick="showQuarter('Q3')">Q3</div>
-    <div class="q-tab" onclick="showQuarter('Q4')">Q4</div>
+    <div class="q-tab active" onclick="showQuarter('Q1',this)">Q1</div>
+    <div class="q-tab" onclick="showQuarter('Q2',this)">Q2</div>
+    <div class="q-tab" onclick="showQuarter('Q3',this)">Q3</div>
+    <div class="q-tab" onclick="showQuarter('Q4',this)">Q4</div>
   </div>
   <div class="metrics" id="q-kpi"></div>
   <div class="chart-row">
@@ -259,11 +260,19 @@ const qInsights = {
 const priceDist = {labels:['$0-5','$5-10','$10-15','$15-20','$20-30','$30-50','$50+'],data:[146,168,145,87,73,43,20]};
 
 // === TAB LOGIC ===
-function showTab(id) {
+const initialized = {};
+function showTab(id, el) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById('sec-'+id).classList.add('active');
   document.querySelectorAll('#main-tabs .tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+  if(el) el.classList.add('active');
+  // Lazy init charts that need visible container
+  setTimeout(()=>{
+    if(id==='groups' && !initialized.groups){ updateGroupView(); initialized.groups=true; }
+    if(id==='geo' && !initialized.geo){ initGeo(); initialized.geo=true; }
+    if(id==='pricing' && !initialized.pricing){ initPricing(); initialized.pricing=true; }
+    if(id==='quarterly' && !initialized.quarterly){ showQuarter('Q1', document.querySelector('.q-tab')); initialized.quarterly=true; }
+  }, 50);
 }
 
 // === ANNUAL CHARTS ===
@@ -293,9 +302,9 @@ new Chart(document.getElementById('companyChart'), {
 
 // === QUARTERLY ===
 let qCharts = {};
-function showQuarter(q) {
+function showQuarter(q, el) {
   document.querySelectorAll('.q-tab').forEach(t=>t.classList.remove('active'));
-  event.target.classList.add('active');
+  if(el) el.classList.add('active');
   const d = qData[q];
   // KPIs
   const prevQ = {Q1:null,Q2:'Q1',Q3:'Q2',Q4:'Q3'}[q];
@@ -328,7 +337,7 @@ function showQuarter(q) {
   // Insights
   document.getElementById('q-insights').innerHTML = '<div class="insight-grid">'+qInsights[q]+'</div>';
 }
-showQuarter('Q1');
+// Quarterly init deferred to showTab lazy init
 
 // === GROUP DEEP-DIVE ===
 const sel = document.getElementById('groupSelect');
@@ -349,9 +358,10 @@ function updateGroupView() {
   gCharts.avg = new Chart(document.getElementById('memberAvgChart'),{type:'bar',data:{labels:mEntries.map(m=>m[0]),datasets:[{label:'Avg price',data:mEntries.map(m=>m[1].avg),backgroundColor:COLORS.map(c=>c+'99'),borderColor:COLORS,borderWidth:1.5,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:ctx=>{const m=mEntries[ctx.dataIndex];return m[1].count+' items sold'}}}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Avg price ($)'}}}}});
   gCharts.total = new Chart(document.getElementById('memberTotalChart'),{type:'bar',data:{labels:mEntries.map(m=>m[0]),datasets:[{label:'Total revenue',data:mEntries.map(m=>m[1].total),backgroundColor:COLORS,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Total revenue ($)'}}}}});
 }
-updateGroupView();
+// Group view deferred - called by showTab
 
 // === GEOGRAPHY ===
+function initGeo() {
 const maxGeo = Math.max(...Object.values(geo).map(g=>g.count));
 d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json').then(us=>{
   const svg = d3.select('#geoMap').append('svg').attr('viewBox','0 0 960 600').attr('width','100%');
@@ -373,10 +383,13 @@ if(qStates.length) document.getElementById('highAvgState').textContent=qStates[0
 
 const topStates = Object.entries(geo).slice(0,15);
 new Chart(document.getElementById('stateBarChart'),{type:'bar',data:{labels:topStates.map(s=>s[0]),datasets:[{data:topStates.map(s=>s[1].count),backgroundColor:'#2d5be388',borderColor:'#2d5be3',borderWidth:1,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{maxRotation:45,autoSkip:false,font:{size:10}}},y:{title:{display:true,text:'Orders'}}}}});
+}
 
 // === PRICING ===
+function initPricing() {
 new Chart(document.getElementById('priceDistChart'),{type:'bar',data:{labels:priceDist.labels,datasets:[{data:priceDist.data,backgroundColor:COLORS.slice(0,7),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Items'}}}}});
 new Chart(document.getElementById('feeDonut'),{type:'doughnut',data:{labels:['Net proceeds','Mercari fee','Other'],datasets:[{data:[10893,1338,37],backgroundColor:['#1a8c5e','#c93a3a','#9c9a92'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{position:'bottom',labels:{padding:12,usePointStyle:true,pointStyle:'rectRounded'}}}}});
+}
 </script>
 </body>
 </html>
