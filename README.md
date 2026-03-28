@@ -1,6 +1,6 @@
 # K-pop Photocard Resale Market Analytics
 
-An end-to-end data analysis project exploring the economics of K-pop photocard reselling on Mercari, based on 755 completed transactions across 22 groups in 2025.
+An end-to-end data analysis project exploring the economics of my K-pop photocard reselling on Mercari, based on 755 completed transactions across 22 groups in 2025.
 
 ## Key findings
 
