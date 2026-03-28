@@ -1,0 +1,338 @@
+<div style="padding: 1rem 0; max-width: 100%;">
+
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:2rem">
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem">
+    <div style="font-size:13px;color:var(--color-text-secondary)">Total sales</div>
+    <div style="font-size:24px;font-weight:500">755</div>
+  </div>
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem">
+    <div style="font-size:13px;color:var(--color-text-secondary)">Gross revenue</div>
+    <div style="font-size:24px;font-weight:500">$12,268</div>
+  </div>
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem">
+    <div style="font-size:13px;color:var(--color-text-secondary)">Net proceeds</div>
+    <div style="font-size:24px;font-weight:500">$10,893</div>
+  </div>
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:1rem">
+    <div style="font-size:13px;color:var(--color-text-secondary)">Avg price</div>
+    <div style="font-size:24px;font-weight:500">$16.25</div>
+  </div>
+</div>
+
+<div style="display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap">
+  <button onclick="showSection('monthly')" id="btn-monthly" style="font-weight:500">Monthly trend</button>
+  <button onclick="showSection('groups')" id="btn-groups">Group ranking</button>
+  <button onclick="showSection('members')" id="btn-members">Member deep-dive</button>
+  <button onclick="showSection('geo')" id="btn-geo">Buyer geography</button>
+  <button onclick="showSection('pricing')" id="btn-pricing">Pricing analysis</button>
+</div>
+
+<!-- MONTHLY TREND -->
+<div id="sec-monthly">
+  <div style="display:flex;gap:12px;margin-bottom:12px;font-size:12px;color:var(--color-text-secondary)">
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#378ADD"></span>Revenue ($)</span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#1D9E75"></span>Sales count</span>
+  </div>
+  <div style="position:relative;height:300px"><canvas id="monthlyChart"></canvas></div>
+  <div style="margin-top:16px;font-size:13px;color:var(--color-text-secondary)">
+    <span style="display:inline-block;background:var(--color-background-info);color:var(--color-text-info);padding:2px 8px;border-radius:var(--border-radius-md);font-size:12px;margin-right:6px">Peak</span>
+    Sep-Nov accounted for 51% of annual revenue ($6,818). Q1-Q2 saw lower activity with Mar being the quietest month.
+  </div>
+</div>
+
+<!-- GROUP RANKING -->
+<div id="sec-groups" style="display:none">
+  <div style="position:relative;height:420px"><canvas id="groupChart"></canvas></div>
+  <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px">
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px">Highest avg price</div>
+      <div style="font-size:15px;font-weight:500">IVE $19.15</div>
+    </div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px">
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:4px">Most volume</div>
+      <div style="font-size:15px;font-weight:500">TXT 86 items</div>
+    </div>
+  </div>
+</div>
+
+<!-- MEMBER DEEP-DIVE -->
+<div id="sec-members" style="display:none">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+    <label style="font-size:14px;color:var(--color-text-secondary)">Select group</label>
+    <select id="groupSelect" onchange="updateMemberChart()" style="flex:1;max-width:220px"></select>
+  </div>
+  <div style="position:relative;height:320px"><canvas id="memberChart"></canvas></div>
+  <div id="memberInsight" style="margin-top:12px;font-size:13px;color:var(--color-text-secondary)"></div>
+</div>
+
+<!-- GEOGRAPHY -->
+<div id="sec-geo" style="display:none">
+  <div id="geoMap" style="width:100%"></div>
+  <div style="margin-top:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px">
+      <div style="font-size:12px;color:var(--color-text-secondary)">Top state</div>
+      <div style="font-size:15px;font-weight:500">California</div>
+      <div style="font-size:12px;color:var(--color-text-secondary)">163 orders / $2,369</div>
+    </div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px">
+      <div style="font-size:12px;color:var(--color-text-secondary)">States covered</div>
+      <div style="font-size:15px;font-weight:500">47 / 50</div>
+    </div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px">
+      <div style="font-size:12px;color:var(--color-text-secondary)">Highest avg spend</div>
+      <div id="highestAvgState" style="font-size:15px;font-weight:500">-</div>
+    </div>
+  </div>
+  <div style="position:relative;height:280px;margin-top:16px"><canvas id="stateBarChart"></canvas></div>
+</div>
+
+<!-- PRICING ANALYSIS -->
+<div id="sec-pricing" style="display:none">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+    <div>
+      <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:8px">Price distribution</div>
+      <div style="position:relative;height:240px"><canvas id="priceDistChart"></canvas></div>
+    </div>
+    <div>
+      <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:8px">Fee breakdown</div>
+      <div style="position:relative;height:240px"><canvas id="feeChart"></canvas></div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px">
+      <div style="font-size:12px;color:var(--color-text-secondary)">Mercari fee rate</div>
+      <div style="font-size:18px;font-weight:500">10.9%</div>
+    </div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px">
+      <div style="font-size:12px;color:var(--color-text-secondary)">Net take-home</div>
+      <div style="font-size:18px;font-weight:500">88.8%</div>
+    </div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px">
+      <div style="font-size:12px;color:var(--color-text-secondary)">Cancel rate</div>
+      <div style="font-size:18px;font-weight:500">3.0%</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+const gridColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
+const textColor = isDark ? '#c2c0b6' : '#5f5e5a';
+const defaults = Chart.defaults;
+defaults.color = textColor;
+defaults.borderColor = gridColor;
+defaults.font.family = '"Anthropic Sans", sans-serif';
+defaults.font.size = 12;
+
+const data = {
+  groups: {"IVE":{"count":85,"total_revenue":1628.0,"avg_price":19.15,"members":{"Wonyoung":{"count":3,"total":68.6,"avg":22.87},"Yujin":{"count":5,"total":44.5,"avg":8.9},"Rei":{"count":3,"total":35.0,"avg":11.67},"Liz":{"count":4,"total":31.0,"avg":7.75},"Gaeul":{"count":2,"total":15.5,"avg":7.75},"Leeseo":{"count":2,"total":14.7,"avg":7.35}}},"TXT":{"count":86,"total_revenue":1412.94,"avg_price":16.43,"members":{"Yeonjun":{"count":25,"total":494.25,"avg":19.77},"Soobin":{"count":19,"total":229.49,"avg":12.08},"Beomgyu":{"count":8,"total":76.5,"avg":9.56},"Hueningkai":{"count":9,"total":76.1,"avg":8.46},"Taehyun":{"count":7,"total":65.6,"avg":9.37}}},"ENHYPEN":{"count":72,"total_revenue":1014.95,"avg_price":14.1,"members":{"Heeseung":{"count":16,"total":414.2,"avg":25.89},"Sunghoon":{"count":12,"total":178.1,"avg":14.84},"Jake":{"count":10,"total":121.0,"avg":12.1},"Ni-ki":{"count":12,"total":102.5,"avg":8.54},"Jungwon":{"count":7,"total":79.5,"avg":11.36},"Jay":{"count":8,"total":70.0,"avg":8.75},"Sunoo":{"count":7,"total":49.65,"avg":7.09}}},"SEVENTEEN":{"count":51,"total_revenue":814.7,"avg_price":15.97,"members":{"Hoshi":{"count":9,"total":253.0,"avg":28.11},"DK":{"count":3,"total":85.2,"avg":28.4},"Wonwoo":{"count":6,"total":78.0,"avg":13.0},"Jun":{"count":10,"total":71.85,"avg":7.19},"Jeonghan":{"count":3,"total":55.0,"avg":18.33},"S.Coups":{"count":3,"total":41.0,"avg":13.67},"Dino":{"count":4,"total":36.0,"avg":9.0},"Seungkwan":{"count":2,"total":30.0,"avg":15.0},"Joshua":{"count":2,"total":28.0,"avg":14.0},"Mingyu":{"count":2,"total":16.0,"avg":8.0},"Woozi":{"count":2,"total":9.0,"avg":4.5},"Vernon":{"count":1,"total":8.1,"avg":8.1}}},"BOYNEXTDOOR":{"count":35,"total_revenue":438.68,"avg_price":12.53,"members":{"Jaehyun":{"count":14,"total":195.66,"avg":13.98},"Leehan":{"count":6,"total":55.4,"avg":9.23},"Taesan":{"count":2,"total":20.8,"avg":10.4},"Riwoo":{"count":2,"total":7.5,"avg":3.75}}},"Hearts2Hearts":{"count":32,"total_revenue":425.05,"avg_price":13.28,"members":{}},"ILLIT":{"count":32,"total_revenue":406.0,"avg_price":12.69,"members":{"Moka":{"count":11,"total":174.0,"avg":15.82},"Minju":{"count":3,"total":78.0,"avg":26.0},"Iroha":{"count":5,"total":50.5,"avg":10.1},"Yunah":{"count":8,"total":44.5,"avg":5.56},"Wonhee":{"count":3,"total":39.0,"avg":13.0}}},"CORTIS":{"count":29,"total_revenue":376.05,"avg_price":12.97,"members":{}},"MEOVV":{"count":32,"total_revenue":314.0,"avg_price":9.81,"members":{}},"ITZY":{"count":25,"total_revenue":248.24,"avg_price":9.93,"members":{"Ryujin":{"count":11,"total":98.8,"avg":8.98},"Yeji":{"count":5,"total":64.75,"avg":12.95},"Chaeryeong":{"count":4,"total":35.5,"avg":8.88},"Yuna":{"count":3,"total":29.19,"avg":9.73},"Lia":{"count":1,"total":12.0,"avg":12.0}}},"aespa":{"count":36,"total_revenue":243.8,"avg_price":6.77,"members":{"Karina":{"count":10,"total":110.5,"avg":11.05},"NingNing":{"count":4,"total":23.5,"avg":5.88},"Winter":{"count":4,"total":20.5,"avg":5.12},"Giselle":{"count":3,"total":20.0,"avg":6.67}}},"TWS":{"count":18,"total_revenue":198.75,"avg_price":11.04,"members":{"Shinyu":{"count":3,"total":49.0,"avg":16.33},"Hanjin":{"count":3,"total":48.0,"avg":16.0},"Jihoon":{"count":4,"total":43.25,"avg":10.81},"Kyungmin":{"count":3,"total":26.0,"avg":8.67},"Dohoon":{"count":3,"total":24.5,"avg":8.17},"Youngjae":{"count":2,"total":8.0,"avg":4.0}}},"KiiiKiii":{"count":15,"total_revenue":115.0,"avg_price":7.67,"members":{}},"NMIXX":{"count":12,"total_revenue":112.99,"avg_price":9.42,"members":{"Sullyoon":{"count":3,"total":29.75,"avg":9.92},"Kyujin":{"count":2,"total":21.0,"avg":10.5},"Bae":{"count":2,"total":15.6,"avg":7.8},"Lily":{"count":2,"total":15.5,"avg":7.75},"Haewon":{"count":2,"total":14.14,"avg":7.07},"Jiwoo":{"count":1,"total":7.0,"avg":7.0}}},"SayMyName":{"count":14,"total_revenue":97.55,"avg_price":6.97,"members":{}},"RIIZE":{"count":6,"total_revenue":82.0,"avg_price":13.67,"members":{"Wonbin":{"count":2,"total":47.0,"avg":23.5},"Anton":{"count":2,"total":20.0,"avg":10.0},"Sungchan":{"count":1,"total":10.0,"avg":10.0},"Eunseok":{"count":1,"total":5.0,"avg":5.0}}},"NCT":{"count":6,"total_revenue":49.0,"avg_price":8.17,"members":{}},"iFeye":{"count":5,"total_revenue":43.0,"avg_price":8.6,"members":{}},"TREASURE":{"count":5,"total_revenue":36.5,"avg_price":7.3,"members":{}},"Kickflip":{"count":25,"total_revenue":176.25,"avg_price":7.05,"members":{}},"The Boyz":{"count":3,"total_revenue":22.5,"avg_price":7.5,"members":{}}},
+  monthly: {"2025-01":{"count":46,"revenue":765.55},"2025-02":{"count":31,"revenue":518.5},"2025-03":{"count":26,"revenue":322.1},"2025-04":{"count":24,"revenue":331.3},"2025-05":{"count":32,"revenue":355.05},"2025-06":{"count":61,"revenue":752.61},"2025-07":{"count":35,"revenue":316.0},"2025-08":{"count":51,"revenue":957.8},"2025-09":{"count":158,"revenue":2394.13},"2025-10":{"count":122,"revenue":2094.51},"2025-11":{"count":106,"revenue":2329.39},"2025-12":{"count":60,"revenue":1093.28}},
+  geography: {"California":{"count":163,"revenue":2368.9,"avg_price":14.53},"Texas":{"count":61,"revenue":783.36,"avg_price":12.84},"Florida":{"count":46,"revenue":846.35,"avg_price":18.4},"New York":{"count":44,"revenue":567.9,"avg_price":12.91},"Illinois":{"count":38,"revenue":489.1,"avg_price":12.87},"Washington":{"count":33,"revenue":636.0,"avg_price":19.27},"North Carolina":{"count":31,"revenue":557.2,"avg_price":17.97},"Pennsylvania":{"count":28,"revenue":367.3,"avg_price":13.12},"Virginia":{"count":24,"revenue":565.79,"avg_price":23.57},"Ohio":{"count":23,"revenue":312.7,"avg_price":13.6},"Georgia":{"count":20,"revenue":275.63,"avg_price":13.78},"New Jersey":{"count":18,"revenue":316.9,"avg_price":17.61},"Michigan":{"count":18,"revenue":240.25,"avg_price":13.35},"Massachusetts":{"count":16,"revenue":202.8,"avg_price":12.68},"Arizona":{"count":14,"revenue":170.89,"avg_price":12.21},"Tennessee":{"count":13,"revenue":258.1,"avg_price":19.85},"Oregon":{"count":13,"revenue":185.3,"avg_price":14.25},"Indiana":{"count":12,"revenue":163.75,"avg_price":13.65},"Maryland":{"count":11,"revenue":180.55,"avg_price":16.41},"Missouri":{"count":11,"revenue":191.52,"avg_price":17.41},"Hawaii":{"count":10,"revenue":182.35,"avg_price":18.24},"Minnesota":{"count":9,"revenue":235.8,"avg_price":26.2},"Utah":{"count":8,"revenue":125.57,"avg_price":15.7},"Nevada":{"count":8,"revenue":96.6,"avg_price":12.08},"Colorado":{"count":7,"revenue":70.65,"avg_price":10.09},"Wisconsin":{"count":7,"revenue":59.65,"avg_price":8.52},"South Carolina":{"count":6,"revenue":61.0,"avg_price":10.17},"Connecticut":{"count":5,"revenue":70.0,"avg_price":14.0},"Kansas":{"count":5,"revenue":60.0,"avg_price":12.0},"Kentucky":{"count":5,"revenue":43.5,"avg_price":8.7},"Alabama":{"count":4,"revenue":108.0,"avg_price":27.0},"Louisiana":{"count":4,"revenue":59.0,"avg_price":14.75},"Arkansas":{"count":4,"revenue":53.0,"avg_price":13.25},"Iowa":{"count":4,"revenue":37.0,"avg_price":9.25},"Maine":{"count":3,"revenue":45.0,"avg_price":15.0},"New Hampshire":{"count":3,"revenue":34.5,"avg_price":11.5},"New Mexico":{"count":3,"revenue":34.0,"avg_price":11.33},"Oklahoma":{"count":3,"revenue":18.0,"avg_price":6.0},"Delaware":{"count":2,"revenue":42.0,"avg_price":21.0},"Nebraska":{"count":2,"revenue":29.0,"avg_price":14.5},"Montana":{"count":2,"revenue":28.0,"avg_price":14.0},"Idaho":{"count":2,"revenue":23.8,"avg_price":11.9},"Mississippi":{"count":2,"revenue":20.0,"avg_price":10.0},"Rhode Island":{"count":2,"revenue":16.0,"avg_price":8.0},"West Virginia":{"count":1,"revenue":42.0,"avg_price":42.0},"Vermont":{"count":1,"revenue":18.0,"avg_price":18.0},"Alaska":{"count":1,"revenue":14.0,"avg_price":14.0}},
+  priceDist: {"$0-5":146,"$5-10":168,"$10-15":145,"$15-20":87,"$20-30":73,"$30-50":43,"$50+":20}
+};
+
+// Section toggling
+function showSection(id) {
+  ['monthly','groups','members','geo','pricing'].forEach(s => {
+    document.getElementById('sec-'+s).style.display = s===id ? '' : 'none';
+    document.getElementById('btn-'+s).style.fontWeight = s===id ? '500' : '';
+  });
+}
+
+// 1. MONTHLY CHART
+const mLabels = Object.keys(data.monthly).map(m => {
+  const [y,mo] = m.split('-');
+  return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][parseInt(mo)-1];
+});
+new Chart(document.getElementById('monthlyChart'), {
+  type: 'bar',
+  data: {
+    labels: mLabels,
+    datasets: [
+      { label: 'Revenue', data: Object.values(data.monthly).map(m=>m.revenue), backgroundColor: '#378ADD', borderRadius: 4, order: 1, yAxisID: 'y' },
+      { label: 'Count', data: Object.values(data.monthly).map(m=>m.count), type: 'line', borderColor: '#1D9E75', backgroundColor: '#1D9E7520', pointRadius: 4, pointBackgroundColor: '#1D9E75', tension: 0.3, yAxisID: 'y1', order: 0 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { autoSkip: false } },
+      y: { position: 'left', title: { display: true, text: 'Revenue ($)' }, grid: { color: gridColor } },
+      y1: { position: 'right', title: { display: true, text: 'Sales count' }, grid: { display: false } }
+    }
+  }
+});
+
+// 2. GROUP RANKING
+const topGroups = Object.entries(data.groups).slice(0, 12);
+const gColors = ['#378ADD','#1D9E75','#7F77DD','#D85A30','#D4537E','#BA7517','#639922','#E24B4A','#5DCAA5','#ED93B1','#888780','#85B7EB'];
+new Chart(document.getElementById('groupChart'), {
+  type: 'bar',
+  data: {
+    labels: topGroups.map(g=>g[0]),
+    datasets: [
+      { label: 'Total revenue ($)', data: topGroups.map(g=>g[1].total_revenue), backgroundColor: gColors, borderRadius: 4 }
+    ]
+  },
+  options: {
+    indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { afterLabel: (ctx) => { const g = topGroups[ctx.dataIndex]; return `${g[1].count} items | avg $${g[1].avg_price}`; }}}
+    },
+    scales: {
+      x: { title: { display: true, text: 'Total revenue ($)' }, grid: { color: gridColor } },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// 3. MEMBER DEEP-DIVE
+const sel = document.getElementById('groupSelect');
+const groupsWithMembers = Object.entries(data.groups).filter(([k,v]) => Object.keys(v.members).length > 0);
+groupsWithMembers.forEach(([name]) => {
+  const opt = document.createElement('option');
+  opt.value = name; opt.textContent = name;
+  sel.appendChild(opt);
+});
+let memberChartInstance = null;
+function updateMemberChart() {
+  const gName = sel.value;
+  const g = data.groups[gName];
+  const members = Object.entries(g.members).sort((a,b) => b[1].avg - a[1].avg);
+  if (memberChartInstance) memberChartInstance.destroy();
+  const mColors = members.map((_,i) => gColors[i % gColors.length]);
+  memberChartInstance = new Chart(document.getElementById('memberChart'), {
+    type: 'bar',
+    data: {
+      labels: members.map(m=>m[0]),
+      datasets: [
+        { label: 'Avg price ($)', data: members.map(m=>m[1].avg), backgroundColor: mColors.map(c=>c+'99'), borderColor: mColors, borderWidth: 1.5, borderRadius: 4 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { afterLabel: (ctx) => { const m = members[ctx.dataIndex]; return `${m[1].count} items | total $${m[1].total}`; }}}
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: { title: { display: true, text: 'Avg price ($)' }, grid: { color: gridColor } }
+      }
+    }
+  });
+  const top = members[0];
+  const bot = members[members.length-1];
+  document.getElementById('memberInsight').innerHTML =
+    `<span style="font-weight:500">${top[0]}</span> commands the highest avg at $${top[1].avg.toFixed(2)}, while <span style="font-weight:500">${bot[0]}</span> is at $${bot[1].avg.toFixed(2)}. The spread is ${(top[1].avg / bot[1].avg).toFixed(1)}x within ${gName}.`;
+}
+updateMemberChart();
+
+// 4. GEOGRAPHY MAP
+const geo = data.geography;
+const maxCount = Math.max(...Object.values(geo).map(g=>g.count));
+const colorScale = isDark
+  ? d3.scaleSequential(d3.interpolateBlues).domain([0, maxCount * 1.2])
+  : d3.scaleSequential(d3.interpolateBlues).domain([-10, maxCount * 1.3]);
+
+d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json').then(us => {
+  const svg = d3.select('#geoMap').append('svg')
+    .attr('viewBox', '0 0 960 600').attr('width', '100%');
+  const path = d3.geoPath(d3.geoAlbersUsa().scale(1280).translate([480, 300]));
+  const tooltip = d3.select('#geoMap').append('div')
+    .style('position','absolute').style('pointer-events','none').style('display','none')
+    .style('background','var(--color-background-primary)').style('border','0.5px solid var(--color-border-secondary)')
+    .style('border-radius','var(--border-radius-md)').style('padding','8px 12px').style('font-size','12px')
+    .style('color','var(--color-text-primary)').style('box-shadow','none').style('z-index','10');
+
+  svg.selectAll('path')
+    .data(topojson.feature(us, us.objects.states).features)
+    .join('path')
+    .attr('d', path)
+    .attr('fill', d => {
+      const name = d.properties.name;
+      return geo[name] ? colorScale(geo[name].count) : (isDark ? '#2c2c2a' : '#f1efe8');
+    })
+    .attr('stroke', isDark ? 'rgba(255,255,255,0.12)' : '#fff')
+    .attr('stroke-width', 0.5)
+    .on('mouseover', function(e, d) {
+      const name = d.properties.name;
+      const info = geo[name];
+      d3.select(this).attr('stroke-width', 2).attr('stroke', isDark ? '#fff' : '#333');
+      if (info) {
+        tooltip.style('display','block')
+          .html(`<div style="font-weight:500">${name}</div><div>${info.count} orders | $${info.revenue.toFixed(0)} revenue</div><div>Avg: $${info.avg_price.toFixed(2)}</div>`);
+      }
+    })
+    .on('mousemove', function(e) {
+      tooltip.style('left', (e.offsetX+12)+'px').style('top', (e.offsetY-20)+'px');
+    })
+    .on('mouseout', function() {
+      d3.select(this).attr('stroke-width', 0.5).attr('stroke', isDark ? 'rgba(255,255,255,0.12)' : '#fff');
+      tooltip.style('display','none');
+    });
+}).catch(()=>{
+  document.getElementById('geoMap').innerHTML = '<div style="padding:2rem;text-align:center;color:var(--color-text-secondary)">Map data unavailable</div>';
+});
+
+// Highest avg state (min 3 orders)
+const qualifiedStates = Object.entries(geo).filter(([_,v]) => v.count >= 3);
+qualifiedStates.sort((a,b) => b[1].avg_price - a[1].avg_price);
+if (qualifiedStates.length > 0) {
+  document.getElementById('highestAvgState').textContent = `${qualifiedStates[0][0]} $${qualifiedStates[0][1].avg_price.toFixed(2)}`;
+}
+
+// State bar chart (top 15)
+const topStates = Object.entries(geo).sort((a,b) => b[1].count - a[1].count).slice(0,15);
+new Chart(document.getElementById('stateBarChart'), {
+  type: 'bar',
+  data: {
+    labels: topStates.map(s=>s[0]),
+    datasets: [{ label: 'Orders', data: topStates.map(s=>s[1].count), backgroundColor: '#378ADD88', borderColor: '#378ADD', borderWidth: 1, borderRadius: 3 }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { maxRotation: 45, autoSkip: false, font: { size: 11 } } },
+      y: { title: { display: true, text: 'Orders' }, grid: { color: gridColor } }
+    }
+  }
+});
+
+// 5. PRICING
+const distOrder = ['$0-5','$5-10','$10-15','$15-20','$20-30','$30-50','$50+'];
+const distColors = ['#5DCAA5','#1D9E75','#378ADD','#7F77DD','#D4537E','#D85A30','#E24B4A'];
+new Chart(document.getElementById('priceDistChart'), {
+  type: 'bar',
+  data: {
+    labels: distOrder,
+    datasets: [{ data: distOrder.map(b=>data.priceDist[b]||0), backgroundColor: distColors, borderRadius: 4 }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: { x: { grid: { display: false } }, y: { title: { display: true, text: 'Items' }, grid: { color: gridColor } } }
+  }
+});
+
+new Chart(document.getElementById('feeChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Net proceeds', 'Mercari fee', 'Other deductions'],
+    datasets: [{ data: [10893.31, 1337.62, 37.29], backgroundColor: ['#1D9E75','#E24B4A','#888780'], borderWidth: 0 }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { padding: 12, usePointStyle: true, pointStyle: 'rectRounded' } } },
+    cutout: '55%'
+  }
+});
+</script>

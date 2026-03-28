@@ -1,0 +1,1229 @@
+{
+  "summary": {
+    "total_completed": 755,
+    "total_revenue": 12268.22,
+    "net_proceeds": 10893.31,
+    "unique_groups": 22,
+    "avg_price": 16.25,
+    "total_cancelled": 23,
+    "cancel_rate": 3.0
+  },
+  "groups": {
+    "IVE": {
+      "count": 85,
+      "total_revenue": 1628.0,
+      "avg_price": 19.15,
+      "min_price": 3.8,
+      "max_price": 80.0,
+      "members": {
+        "Wonyoung": {
+          "count": 3,
+          "total": 68.6,
+          "avg": 22.87,
+          "min": 16.0,
+          "max": 36.1
+        },
+        "Yujin": {
+          "count": 5,
+          "total": 44.5,
+          "avg": 8.9,
+          "min": 3.8,
+          "max": 18.0
+        },
+        "Rei": {
+          "count": 3,
+          "total": 35.0,
+          "avg": 11.67,
+          "min": 8.0,
+          "max": 15.0
+        },
+        "Liz": {
+          "count": 4,
+          "total": 31.0,
+          "avg": 7.75,
+          "min": 6.0,
+          "max": 10.0
+        },
+        "Gaeul": {
+          "count": 2,
+          "total": 15.5,
+          "avg": 7.75,
+          "min": 6.0,
+          "max": 9.5
+        },
+        "Leeseo": {
+          "count": 2,
+          "total": 14.7,
+          "avg": 7.35,
+          "min": 5.7,
+          "max": 9.0
+        }
+      }
+    },
+    "TXT": {
+      "count": 86,
+      "total_revenue": 1412.94,
+      "avg_price": 16.43,
+      "min_price": 2.0,
+      "max_price": 190.0,
+      "members": {
+        "Yeonjun": {
+          "count": 25,
+          "total": 494.3,
+          "avg": 19.77,
+          "min": 2.0,
+          "max": 90.0
+        },
+        "Soobin": {
+          "count": 19,
+          "total": 229.44,
+          "avg": 12.08,
+          "min": 2.5,
+          "max": 35.0
+        },
+        "Beomgyu": {
+          "count": 8,
+          "total": 76.5,
+          "avg": 9.56,
+          "min": 2.5,
+          "max": 30.0
+        },
+        "Hueningkai": {
+          "count": 9,
+          "total": 76.1,
+          "avg": 8.46,
+          "min": 3.0,
+          "max": 17.1
+        },
+        "Taehyun": {
+          "count": 7,
+          "total": 65.6,
+          "avg": 9.37,
+          "min": 3.0,
+          "max": 25.0
+        }
+      }
+    },
+    "ENHYPEN": {
+      "count": 72,
+      "total_revenue": 1014.95,
+      "avg_price": 14.1,
+      "min_price": 4.0,
+      "max_price": 75.0,
+      "members": {
+        "Heeseung": {
+          "count": 16,
+          "total": 414.2,
+          "avg": 25.89,
+          "min": 7.2,
+          "max": 75.0
+        },
+        "Sunghoon": {
+          "count": 12,
+          "total": 178.1,
+          "avg": 14.84,
+          "min": 8.0,
+          "max": 28.0
+        },
+        "Jake": {
+          "count": 10,
+          "total": 121.0,
+          "avg": 12.1,
+          "min": 8.0,
+          "max": 20.0
+        },
+        "Ni-ki": {
+          "count": 12,
+          "total": 102.5,
+          "avg": 8.54,
+          "min": 4.5,
+          "max": 15.0
+        },
+        "Jungwon": {
+          "count": 7,
+          "total": 79.5,
+          "avg": 11.36,
+          "min": 8.0,
+          "max": 20.0
+        },
+        "Jay": {
+          "count": 8,
+          "total": 70.0,
+          "avg": 8.75,
+          "min": 5.0,
+          "max": 21.0
+        },
+        "Sunoo": {
+          "count": 7,
+          "total": 49.65,
+          "avg": 7.09,
+          "min": 4.0,
+          "max": 11.4
+        }
+      }
+    },
+    "SEVENTEEN": {
+      "count": 51,
+      "total_revenue": 814.7,
+      "avg_price": 15.97,
+      "min_price": 1.0,
+      "max_price": 90.0,
+      "members": {
+        "Hoshi": {
+          "count": 9,
+          "total": 253.0,
+          "avg": 28.11,
+          "min": 2.0,
+          "max": 90.0
+        },
+        "DK": {
+          "count": 3,
+          "total": 85.2,
+          "avg": 28.4,
+          "min": 5.2,
+          "max": 65.0
+        },
+        "Wonwoo": {
+          "count": 6,
+          "total": 78.0,
+          "avg": 13.0,
+          "min": 8.0,
+          "max": 20.0
+        },
+        "Jun": {
+          "count": 10,
+          "total": 71.9,
+          "avg": 7.19,
+          "min": 2.9,
+          "max": 12.0
+        },
+        "Jeonghan": {
+          "count": 3,
+          "total": 55.0,
+          "avg": 18.33,
+          "min": 5.0,
+          "max": 30.0
+        },
+        "S.Coups": {
+          "count": 4,
+          "total": 42.0,
+          "avg": 10.5,
+          "min": 1.0,
+          "max": 20.0
+        },
+        "Dino": {
+          "count": 4,
+          "total": 36.0,
+          "avg": 9.0,
+          "min": 4.0,
+          "max": 12.0
+        },
+        "Seungkwan": {
+          "count": 2,
+          "total": 30.0,
+          "avg": 15.0,
+          "min": 15.0,
+          "max": 15.0
+        },
+        "Joshua": {
+          "count": 2,
+          "total": 28.0,
+          "avg": 14.0,
+          "min": 5.0,
+          "max": 23.0
+        },
+        "Mingyu": {
+          "count": 2,
+          "total": 16.0,
+          "avg": 8.0,
+          "min": 6.0,
+          "max": 10.0
+        },
+        "Woozi": {
+          "count": 2,
+          "total": 9.0,
+          "avg": 4.5,
+          "min": 4.0,
+          "max": 5.0
+        },
+        "Vernon": {
+          "count": 1,
+          "total": 8.1,
+          "avg": 8.1,
+          "min": 8.1,
+          "max": 8.1
+        }
+      }
+    },
+    "BOYNEXTDOOR": {
+      "count": 35,
+      "total_revenue": 438.68,
+      "avg_price": 12.53,
+      "min_price": 3.0,
+      "max_price": 55.0,
+      "members": {
+        "Jaehyun": {
+          "count": 14,
+          "total": 195.66,
+          "avg": 13.98,
+          "min": 3.0,
+          "max": 55.0
+        },
+        "Leehan": {
+          "count": 6,
+          "total": 55.4,
+          "avg": 9.23,
+          "min": 3.9,
+          "max": 12.0
+        },
+        "Taesan": {
+          "count": 2,
+          "total": 20.8,
+          "avg": 10.4,
+          "min": 10.0,
+          "max": 10.8
+        },
+        "Riwoo": {
+          "count": 2,
+          "total": 7.5,
+          "avg": 3.75,
+          "min": 3.6,
+          "max": 3.9
+        }
+      }
+    },
+    "Hearts2Hearts": {
+      "count": 32,
+      "total_revenue": 425.05,
+      "avg_price": 13.28,
+      "min_price": 4.75,
+      "max_price": 28.0,
+      "members": {}
+    },
+    "ILLIT": {
+      "count": 32,
+      "total_revenue": 406.0,
+      "avg_price": 12.69,
+      "min_price": 3.0,
+      "max_price": 65.0,
+      "members": {
+        "Moka": {
+          "count": 11,
+          "total": 174.0,
+          "avg": 15.82,
+          "min": 4.0,
+          "max": 65.0
+        },
+        "Minju": {
+          "count": 3,
+          "total": 78.0,
+          "avg": 26.0,
+          "min": 3.0,
+          "max": 60.0
+        },
+        "Iroha": {
+          "count": 5,
+          "total": 50.5,
+          "avg": 10.1,
+          "min": 3.0,
+          "max": 17.5
+        },
+        "Yunah": {
+          "count": 8,
+          "total": 44.5,
+          "avg": 5.56,
+          "min": 4.0,
+          "max": 10.0
+        },
+        "Wonhee": {
+          "count": 3,
+          "total": 39.0,
+          "avg": 13.0,
+          "min": 10.0,
+          "max": 19.0
+        }
+      }
+    },
+    "CORTIS": {
+      "count": 29,
+      "total_revenue": 376.05,
+      "avg_price": 12.97,
+      "min_price": 5.0,
+      "max_price": 65.0,
+      "members": {}
+    },
+    "MEOVV": {
+      "count": 32,
+      "total_revenue": 314.0,
+      "avg_price": 9.81,
+      "min_price": 2.5,
+      "max_price": 90.0,
+      "members": {}
+    },
+    "ITZY": {
+      "count": 25,
+      "total_revenue": 248.24,
+      "avg_price": 9.93,
+      "min_price": 3.8,
+      "max_price": 23.75,
+      "members": {
+        "Ryujin": {
+          "count": 11,
+          "total": 98.8,
+          "avg": 8.98,
+          "min": 3.8,
+          "max": 16.0
+        },
+        "Yeji": {
+          "count": 5,
+          "total": 64.75,
+          "avg": 12.95,
+          "min": 4.0,
+          "max": 23.75
+        },
+        "Chaeryeong": {
+          "count": 4,
+          "total": 35.5,
+          "avg": 8.88,
+          "min": 6.0,
+          "max": 10.0
+        },
+        "Yuna": {
+          "count": 3,
+          "total": 29.19,
+          "avg": 9.73,
+          "min": 8.0,
+          "max": 10.69
+        },
+        "Lia": {
+          "count": 1,
+          "total": 12.0,
+          "avg": 12.0,
+          "min": 12.0,
+          "max": 12.0
+        }
+      }
+    },
+    "aespa": {
+      "count": 36,
+      "total_revenue": 243.8,
+      "avg_price": 6.77,
+      "min_price": 3.5,
+      "max_price": 25.0,
+      "members": {
+        "Karina": {
+          "count": 10,
+          "total": 110.5,
+          "avg": 11.05,
+          "min": 4.5,
+          "max": 25.0
+        },
+        "NingNing": {
+          "count": 4,
+          "total": 23.5,
+          "avg": 5.88,
+          "min": 5.0,
+          "max": 8.0
+        },
+        "Winter": {
+          "count": 4,
+          "total": 20.5,
+          "avg": 5.12,
+          "min": 4.0,
+          "max": 8.0
+        },
+        "Giselle": {
+          "count": 3,
+          "total": 20.0,
+          "avg": 6.67,
+          "min": 4.0,
+          "max": 12.0
+        }
+      }
+    },
+    "Kickflip": {
+      "count": 33,
+      "total_revenue": 235.87,
+      "avg_price": 7.15,
+      "min_price": 2.55,
+      "max_price": 23.0,
+      "members": {}
+    },
+    "TWS": {
+      "count": 18,
+      "total_revenue": 198.75,
+      "avg_price": 11.04,
+      "min_price": 3.0,
+      "max_price": 20.0,
+      "members": {
+        "Shinyu": {
+          "count": 5,
+          "total": 85.2,
+          "avg": 17.04,
+          "min": 7.2,
+          "max": 20.0
+        },
+        "Dohoon": {
+          "count": 5,
+          "total": 64.0,
+          "avg": 12.8,
+          "min": 12.0,
+          "max": 13.0
+        },
+        "Kyungmin": {
+          "count": 3,
+          "total": 16.0,
+          "avg": 5.33,
+          "min": 3.0,
+          "max": 9.0
+        },
+        "Jihoon": {
+          "count": 2,
+          "total": 15.25,
+          "avg": 7.62,
+          "min": 4.0,
+          "max": 11.25
+        },
+        "Youngjae": {
+          "count": 2,
+          "total": 13.3,
+          "avg": 6.65,
+          "min": 6.3,
+          "max": 7.0
+        }
+      }
+    },
+    "SayMyName": {
+      "count": 15,
+      "total_revenue": 147.95,
+      "avg_price": 9.86,
+      "min_price": 2.5,
+      "max_price": 25.0,
+      "members": {}
+    },
+    "KiiiKiii": {
+      "count": 15,
+      "total_revenue": 117.15,
+      "avg_price": 7.81,
+      "min_price": 4.5,
+      "max_price": 25.0,
+      "members": {}
+    },
+    "RIIZE": {
+      "count": 6,
+      "total_revenue": 82.0,
+      "avg_price": 13.67,
+      "min_price": 5.0,
+      "max_price": 30.0,
+      "members": {
+        "Wonbin": {
+          "count": 6,
+          "total": 82.0,
+          "avg": 13.67,
+          "min": 5.0,
+          "max": 30.0
+        }
+      }
+    },
+    "iFeye": {
+      "count": 5,
+      "total_revenue": 69.0,
+      "avg_price": 13.8,
+      "min_price": 12.0,
+      "max_price": 15.0,
+      "members": {}
+    },
+    "The Boyz": {
+      "count": 3,
+      "total_revenue": 57.0,
+      "avg_price": 19.0,
+      "min_price": 6.0,
+      "max_price": 40.0,
+      "members": {}
+    },
+    "TREASURE": {
+      "count": 5,
+      "total_revenue": 41.2,
+      "avg_price": 8.24,
+      "min_price": 6.0,
+      "max_price": 10.0,
+      "members": {}
+    },
+    "NMIXX": {
+      "count": 5,
+      "total_revenue": 40.49,
+      "avg_price": 8.1,
+      "min_price": 3.0,
+      "max_price": 15.0,
+      "members": {
+        "Haewon": {
+          "count": 2,
+          "total": 22.2,
+          "avg": 11.1,
+          "min": 7.2,
+          "max": 15.0
+        },
+        "Bae": {
+          "count": 2,
+          "total": 10.29,
+          "avg": 5.14,
+          "min": 3.0,
+          "max": 7.29
+        },
+        "Lily": {
+          "count": 1,
+          "total": 8.0,
+          "avg": 8.0,
+          "min": 8.0,
+          "max": 8.0
+        }
+      }
+    },
+    "NewJeans": {
+      "count": 1,
+      "total_revenue": 18.0,
+      "avg_price": 18.0,
+      "min_price": 18.0,
+      "max_price": 18.0,
+      "members": {}
+    },
+    "StayC": {
+      "count": 1,
+      "total_revenue": 7.0,
+      "avg_price": 7.0,
+      "min_price": 7.0,
+      "max_price": 7.0,
+      "members": {}
+    }
+  },
+  "monthly": {
+    "2025-01": {
+      "count": 46,
+      "revenue": 765.55,
+      "avg_price": 16.64,
+      "top_groups": {
+        "TXT": 10,
+        "SEVENTEEN": 9,
+        "ITZY": 8,
+        "IVE": 6,
+        "TWS": 3
+      }
+    },
+    "2025-02": {
+      "count": 31,
+      "revenue": 518.5,
+      "avg_price": 16.73,
+      "top_groups": {
+        "TXT": 9,
+        "IVE": 6,
+        "SEVENTEEN": 6,
+        "BOYNEXTDOOR": 3,
+        "ITZY": 2
+      }
+    },
+    "2025-03": {
+      "count": 26,
+      "revenue": 322.1,
+      "avg_price": 12.39,
+      "top_groups": {
+        "IVE": 4,
+        "TXT": 4,
+        "ITZY": 4,
+        "aespa": 3,
+        "SEVENTEEN": 2
+      }
+    },
+    "2025-04": {
+      "count": 24,
+      "revenue": 331.3,
+      "avg_price": 13.8,
+      "top_groups": {
+        "Kickflip": 4,
+        "IVE": 4,
+        "SayMyName": 2,
+        "SEVENTEEN": 2,
+        "TREASURE": 2
+      }
+    },
+    "2025-05": {
+      "count": 32,
+      "revenue": 355.05,
+      "avg_price": 11.1,
+      "top_groups": {
+        "MEOVV": 10,
+        "BOYNEXTDOOR": 8,
+        "TWS": 3,
+        "Kickflip": 3,
+        "TXT": 3
+      }
+    },
+    "2025-06": {
+      "count": 61,
+      "revenue": 752.61,
+      "avg_price": 12.34,
+      "top_groups": {
+        "ENHYPEN": 17,
+        "SEVENTEEN": 10,
+        "MEOVV": 5,
+        "Kickflip": 5,
+        "IVE": 4
+      }
+    },
+    "2025-07": {
+      "count": 35,
+      "revenue": 316.0,
+      "avg_price": 9.03,
+      "top_groups": {
+        "aespa": 12,
+        "ILLIT": 5,
+        "IVE": 4,
+        "MEOVV": 4,
+        "TXT": 3
+      }
+    },
+    "2025-08": {
+      "count": 51,
+      "revenue": 957.8,
+      "avg_price": 18.78,
+      "top_groups": {
+        "ENHYPEN": 11,
+        "ILLIT": 6,
+        "Kickflip": 4,
+        "Hearts2Hearts": 4,
+        "TXT": 4
+      }
+    },
+    "2025-09": {
+      "count": 158,
+      "revenue": 2394.13,
+      "avg_price": 15.15,
+      "top_groups": {
+        "ENHYPEN": 28,
+        "IVE": 16,
+        "CORTIS": 15,
+        "aespa": 14,
+        "TXT": 13
+      }
+    },
+    "2025-10": {
+      "count": 122,
+      "revenue": 2094.51,
+      "avg_price": 17.17,
+      "top_groups": {
+        "TXT": 20,
+        "IVE": 15,
+        "Hearts2Hearts": 11,
+        "ENHYPEN": 10,
+        "CORTIS": 9
+      }
+    },
+    "2025-11": {
+      "count": 106,
+      "revenue": 2329.39,
+      "avg_price": 21.98,
+      "top_groups": {
+        "Hearts2Hearts": 13,
+        "TXT": 11,
+        "BOYNEXTDOOR": 10,
+        "SEVENTEEN": 10,
+        "IVE": 9
+      }
+    },
+    "2025-12": {
+      "count": 60,
+      "revenue": 1093.28,
+      "avg_price": 18.22,
+      "top_groups": {
+        "IVE": 14,
+        "TXT": 7,
+        "BOYNEXTDOOR": 5,
+        "KiiiKiii": 3,
+        "SayMyName": 3
+      }
+    },
+    "2026-01": {
+      "count": 3,
+      "revenue": 38.0,
+      "avg_price": 12.67,
+      "top_groups": {
+        "ILLIT": 1,
+        "Hearts2Hearts": 1,
+        "IVE": 1
+      }
+    }
+  },
+  "geography": {
+    "California": {
+      "count": 163,
+      "revenue": 2368.9,
+      "avg_price": 14.53,
+      "top_groups": {
+        "TXT": 25,
+        "SEVENTEEN": 16,
+        "ENHYPEN": 16
+      }
+    },
+    "Texas": {
+      "count": 61,
+      "revenue": 783.36,
+      "avg_price": 12.84,
+      "top_groups": {
+        "TXT": 7,
+        "ENHYPEN": 6,
+        "IVE": 5
+      }
+    },
+    "Florida": {
+      "count": 46,
+      "revenue": 846.35,
+      "avg_price": 18.4,
+      "top_groups": {
+        "TXT": 4,
+        "ENHYPEN": 4,
+        "aespa": 3
+      }
+    },
+    "New York": {
+      "count": 44,
+      "revenue": 567.9,
+      "avg_price": 12.91,
+      "top_groups": {
+        "ENHYPEN": 7,
+        "IVE": 6,
+        "TXT": 5
+      }
+    },
+    "Illinois": {
+      "count": 38,
+      "revenue": 489.1,
+      "avg_price": 12.87,
+      "top_groups": {
+        "IVE": 8,
+        "TXT": 5,
+        "TWS": 4
+      }
+    },
+    "Washington": {
+      "count": 33,
+      "revenue": 636.0,
+      "avg_price": 19.27,
+      "top_groups": {
+        "IVE": 8,
+        "SEVENTEEN": 4,
+        "aespa": 4
+      }
+    },
+    "North Carolina": {
+      "count": 31,
+      "revenue": 557.2,
+      "avg_price": 17.97,
+      "top_groups": {
+        "Hearts2Hearts": 5,
+        "IVE": 4,
+        "SEVENTEEN": 3
+      }
+    },
+    "Pennsylvania": {
+      "count": 28,
+      "revenue": 367.3,
+      "avg_price": 13.12,
+      "top_groups": {
+        "Kickflip": 4,
+        "ITZY": 3,
+        "IVE": 2
+      }
+    },
+    "Virginia": {
+      "count": 24,
+      "revenue": 565.79,
+      "avg_price": 23.57,
+      "top_groups": {
+        "IVE": 4,
+        "Kickflip": 3,
+        "BOYNEXTDOOR": 3
+      }
+    },
+    "Ohio": {
+      "count": 23,
+      "revenue": 312.7,
+      "avg_price": 13.6,
+      "top_groups": {
+        "TXT": 5,
+        "ENHYPEN": 3,
+        "IVE": 2
+      }
+    },
+    "Georgia": {
+      "count": 20,
+      "revenue": 280.5,
+      "avg_price": 14.03,
+      "top_groups": {
+        "IVE": 3,
+        "SEVENTEEN": 3,
+        "ILLIT": 3
+      }
+    },
+    "New Jersey": {
+      "count": 18,
+      "revenue": 465.15,
+      "avg_price": 25.84,
+      "top_groups": {
+        "IVE": 2,
+        "ENHYPEN": 2,
+        "MEOVV": 2
+      }
+    },
+    "Michigan": {
+      "count": 18,
+      "revenue": 528.8,
+      "avg_price": 29.38,
+      "top_groups": {
+        "IVE": 4,
+        "TXT": 2,
+        "ILLIT": 2
+      }
+    },
+    "Massachusetts": {
+      "count": 16,
+      "revenue": 385.7,
+      "avg_price": 24.11,
+      "top_groups": {
+        "IVE": 3,
+        "TXT": 2,
+        "aespa": 2
+      }
+    },
+    "Arizona": {
+      "count": 14,
+      "revenue": 271.9,
+      "avg_price": 19.42,
+      "top_groups": {
+        "ENHYPEN": 3,
+        "SEVENTEEN": 2,
+        "BOYNEXTDOOR": 2
+      }
+    },
+    "South Carolina": {
+      "count": 14,
+      "revenue": 290.05,
+      "avg_price": 20.72,
+      "top_groups": {
+        "MEOVV": 3,
+        "IVE": 2,
+        "KiiiKiii": 2
+      }
+    },
+    "Oregon": {
+      "count": 13,
+      "revenue": 295.0,
+      "avg_price": 22.69,
+      "top_groups": {
+        "ITZY": 2,
+        "IVE": 2,
+        "TWS": 1
+      }
+    },
+    "Missouri": {
+      "count": 13,
+      "revenue": 256.72,
+      "avg_price": 19.75,
+      "top_groups": {
+        "SEVENTEEN": 1,
+        "TWS": 1,
+        "IVE": 1
+      }
+    },
+    "Tennessee": {
+      "count": 12,
+      "revenue": 211.25,
+      "avg_price": 17.6,
+      "top_groups": {
+        "aespa": 2,
+        "TXT": 2,
+        "BOYNEXTDOOR": 2
+      }
+    },
+    "Minnesota": {
+      "count": 11,
+      "revenue": 185.82,
+      "avg_price": 16.89,
+      "top_groups": {
+        "ILLIT": 3,
+        "IVE": 1,
+        "TXT": 1
+      }
+    },
+    "Indiana": {
+      "count": 9,
+      "revenue": 145.82,
+      "avg_price": 16.2,
+      "top_groups": {
+        "TXT": 3,
+        "BOYNEXTDOOR": 2,
+        "ITZY": 1
+      }
+    },
+    "Maryland": {
+      "count": 8,
+      "revenue": 87.0,
+      "avg_price": 10.88,
+      "top_groups": {
+        "TXT": 1,
+        "ITZY": 1,
+        "RIIZE": 1
+      }
+    },
+    "Louisiana": {
+      "count": 8,
+      "revenue": 84.0,
+      "avg_price": 10.5,
+      "top_groups": {
+        "BOYNEXTDOOR": 2,
+        "Kickflip": 1,
+        "ENHYPEN": 1
+      }
+    },
+    "Hawaii": {
+      "count": 7,
+      "revenue": 152.94,
+      "avg_price": 21.85,
+      "top_groups": {
+        "TXT": 4,
+        "ENHYPEN": 2,
+        "SayMyName": 1
+      }
+    },
+    "Wisconsin": {
+      "count": 7,
+      "revenue": 69.2,
+      "avg_price": 9.89,
+      "top_groups": {
+        "SEVENTEEN": 2,
+        "ENHYPEN": 1,
+        "iFeye": 1
+      }
+    },
+    "Alabama": {
+      "count": 7,
+      "revenue": 63.3,
+      "avg_price": 9.04,
+      "top_groups": {
+        "BOYNEXTDOOR": 1,
+        "ENHYPEN": 1,
+        "ILLIT": 1
+      }
+    },
+    "Oklahoma": {
+      "count": 7,
+      "revenue": 39.2,
+      "avg_price": 5.6,
+      "top_groups": {
+        "Kickflip": 2,
+        "SEVENTEEN": 2,
+        "ILLIT": 1
+      }
+    },
+    "Colorado": {
+      "count": 7,
+      "revenue": 96.6,
+      "avg_price": 13.8,
+      "top_groups": {
+        "MEOVV": 1,
+        "Kickflip": 1,
+        "CORTIS": 1
+      }
+    },
+    "Iowa": {
+      "count": 7,
+      "revenue": 197.9,
+      "avg_price": 28.27,
+      "top_groups": {
+        "ENHYPEN": 1,
+        "IVE": 1,
+        "SEVENTEEN": 1
+      }
+    },
+    "Maine": {
+      "count": 6,
+      "revenue": 98.1,
+      "avg_price": 16.35,
+      "top_groups": {
+        "IVE": 2,
+        "TXT": 1,
+        "TREASURE": 1
+      }
+    },
+    "Connecticut": {
+      "count": 5,
+      "revenue": 57.0,
+      "avg_price": 11.4,
+      "top_groups": {
+        "ENHYPEN": 2,
+        "ITZY": 1,
+        "IVE": 1
+      }
+    },
+    "Utah": {
+      "count": 5,
+      "revenue": 134.07,
+      "avg_price": 26.81,
+      "top_groups": {
+        "TXT": 2,
+        "aespa": 1,
+        "ENHYPEN": 1
+      }
+    },
+    "Mississippi": {
+      "count": 5,
+      "revenue": 49.6,
+      "avg_price": 9.92,
+      "top_groups": {
+        "IVE": 2,
+        "ENHYPEN": 1,
+        "SayMyName": 1
+      }
+    },
+    "New Mexico": {
+      "count": 4,
+      "revenue": 77.0,
+      "avg_price": 19.25,
+      "top_groups": {
+        "The Boyz": 1,
+        "IVE": 1,
+        "TXT": 1
+      }
+    },
+    "Delaware": {
+      "count": 3,
+      "revenue": 25.75,
+      "avg_price": 8.58,
+      "top_groups": {
+        "TXT": 2,
+        "SEVENTEEN": 1
+      }
+    },
+    "Kentucky": {
+      "count": 3,
+      "revenue": 21.0,
+      "avg_price": 7.0,
+      "top_groups": {
+        "SayMyName": 2,
+        "MEOVV": 1
+      }
+    },
+    "New Hampshire": {
+      "count": 3,
+      "revenue": 18.7,
+      "avg_price": 6.23,
+      "top_groups": {
+        "ENHYPEN": 1,
+        "aespa": 1,
+        "KiiiKiii": 1
+      }
+    },
+    "Nevada": {
+      "count": 2,
+      "revenue": 22.5,
+      "avg_price": 11.25,
+      "top_groups": {
+        "IVE": 1,
+        "KiiiKiii": 1
+      }
+    },
+    "Idaho": {
+      "count": 2,
+      "revenue": 43.0,
+      "avg_price": 21.5,
+      "top_groups": {
+        "TWS": 1
+      }
+    },
+    "Arkansas": {
+      "count": 2,
+      "revenue": 41.0,
+      "avg_price": 20.5,
+      "top_groups": {
+        "BOYNEXTDOOR": 1
+      }
+    },
+    "Kansas": {
+      "count": 2,
+      "revenue": 29.25,
+      "avg_price": 14.62,
+      "top_groups": {
+        "ENHYPEN": 1,
+        "CORTIS": 1
+      }
+    },
+    "South Dakota": {
+      "count": 1,
+      "revenue": 10.0,
+      "avg_price": 10.0,
+      "top_groups": {
+        "IVE": 1
+      }
+    },
+    "District Of Columbia": {
+      "count": 1,
+      "revenue": 15.0,
+      "avg_price": 15.0,
+      "top_groups": {
+        "NMIXX": 1
+      }
+    },
+    "Rhode Island": {
+      "count": 1,
+      "revenue": 10.0,
+      "avg_price": 10.0,
+      "top_groups": {
+        "IVE": 1
+      }
+    },
+    "Montana": {
+      "count": 1,
+      "revenue": 3.0,
+      "avg_price": 3.0,
+      "top_groups": {
+        "NMIXX": 1
+      }
+    },
+    "West Virginia": {
+      "count": 1,
+      "revenue": 8.0,
+      "avg_price": 8.0,
+      "top_groups": {
+        "IVE": 1
+      }
+    },
+    "Vermont": {
+      "count": 1,
+      "revenue": 3.8,
+      "avg_price": 3.8,
+      "top_groups": {
+        "ITZY": 1
+      }
+    }
+  },
+  "fees": {
+    "total_item_price": 12268.22,
+    "total_mercari_fee": 1337.62,
+    "total_net_proceeds": 10893.31,
+    "fee_rate": 10.9,
+    "net_rate": 88.79
+  },
+  "fulfillment": {
+    "avg": 8.9,
+    "min": 2,
+    "max": 46,
+    "median": 7
+  },
+  "price_distribution": {
+    "$30-50": 28,
+    "$0-5": 117,
+    "$5-10": 218,
+    "$20-30": 67,
+    "$15-20": 83,
+    "$10-15": 138,
+    "$50+": 31
+  }
+}
