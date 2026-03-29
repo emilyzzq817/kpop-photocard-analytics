@@ -1,394 +1,262 @@
+Index · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>K-pop Photocard Resale Analytics 2025</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>K-pop Photocard Resale Analytics 2023-2025</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#fafaf8;--surface:#fff;--surface2:#f5f4f0;--text:#1a1a18;--text2:#6b6a65;--text3:#9c9a92;--border:#e8e7e2;--accent:#2d5be3;--accent2:#e8edfc;--green:#1a8c5e;--green2:#e6f5ee;--red:#c93a3a;--red2:#fce8e8;--amber:#b07818;--amber2:#fef3dc;--purple:#6b4ed6;--purple2:#eeedfe;--pink:#c94578;--pink2:#fce8f0;--teal:#0f7062;--teal2:#e1f5ee;--coral:#c94e28;--coral2:#faeae5;--radius:10px;--radius-lg:14px}
+:root{--bg:#fafaf8;--surface:#fff;--surface2:#f5f4f0;--text:#1a1a18;--text2:#6b6a65;--text3:#9c9a92;--border:#e8e7e2;--accent:#2d5be3;--accent2:#e8edfc;--green:#1a8c5e;--green2:#e6f5ee;--red:#c93a3a;--red2:#fce8e8;--amber:#b07818;--amber2:#fef3dc;--purple:#6b4ed6;--radius:10px;--radius-lg:14px}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
 .container{max-width:1080px;margin:0 auto;padding:2rem 1.5rem}
 h1{font-size:1.75rem;font-weight:700;letter-spacing:-0.02em}
-h2{font-size:1.25rem;font-weight:600;letter-spacing:-0.01em;margin-bottom:1rem}
-h3{font-size:1rem;font-weight:600;margin-bottom:0.75rem}
-.subtitle{color:var(--text2);font-size:0.95rem;margin-top:0.25rem}
 .header{padding:2.5rem 0 1.5rem;border-bottom:1px solid var(--border)}
 .header p{color:var(--text2);margin-top:0.5rem;font-size:0.9rem}
 .header a{color:var(--accent);text-decoration:none}
-
-/* Metric cards */
 .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:1.5rem 0}
 .metric{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem}
 .metric .label{font-size:0.8rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.04em;font-weight:500}
 .metric .value{font-size:1.5rem;font-weight:700;margin-top:4px;letter-spacing:-0.02em}
 .metric .delta{font-size:0.78rem;margin-top:2px;font-weight:500}
 .delta.up{color:var(--green)}.delta.down{color:var(--red)}
-
-/* Nav tabs */
 .tabs{display:flex;gap:4px;margin:2rem 0 1.5rem;border-bottom:1px solid var(--border);overflow-x:auto}
 .tab{padding:0.6rem 1.2rem;font-size:0.88rem;font-weight:500;color:var(--text2);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.15s}
-.tab:hover{color:var(--text)}
-.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
-
-/* Quarter tabs */
+.tab:hover{color:var(--text)}.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
 .q-tabs{display:flex;gap:6px;margin-bottom:1.5rem}
 .q-tab{padding:0.5rem 1rem;font-size:0.82rem;font-weight:600;border-radius:var(--radius);cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text2);transition:all 0.15s}
-.q-tab:hover{border-color:var(--accent);color:var(--accent)}
-.q-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-
-/* Charts */
-.chart-wrap{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem}
+.q-tab:hover{border-color:var(--accent);color:var(--accent)}.q-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chart-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem}
 .chart-title{font-size:0.85rem;font-weight:600;margin-bottom:1rem}
-.chart-container{position:relative}
 .chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
 @media(max-width:640px){.chart-row{grid-template-columns:1fr}}
-
-/* Sections */
-.section{display:none}
-.section.active{display:block}
-.section canvas{max-width:100%}
-
-/* Insights */
+.section{display:none}.section.active{display:block}
 .insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:1rem}
 @media(max-width:640px){.insight-grid{grid-template-columns:1fr}}
 .insight{background:var(--surface2);border-radius:var(--radius);padding:1rem 1.25rem}
 .insight .tag{display:inline-block;font-size:0.72rem;font-weight:600;padding:2px 8px;border-radius:6px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.03em}
-.tag.hot{background:var(--red2);color:var(--red)}
-.tag.cool{background:var(--accent2);color:var(--accent)}
-.tag.rise{background:var(--green2);color:var(--green)}
-.tag.warn{background:var(--amber2);color:var(--amber)}
-
-/* Map */
+.tag.hot{background:var(--red2);color:var(--red)}.tag.cool{background:var(--accent2);color:var(--accent)}.tag.rise{background:var(--green2);color:var(--green)}.tag.warn{background:var(--amber2);color:var(--amber)}
 #map-container{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-top:1rem}
 #map-tooltip{position:absolute;pointer-events:none;display:none;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:8px 12px;font-size:12px;z-index:10;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
-
-/* Legend */
 .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:0.78rem;color:var(--text2);margin-bottom:12px}
-.legend span{display:flex;align-items:center;gap:5px}
-.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
-
-/* Group select */
-select{font-family:inherit;font-size:0.88rem;padding:6px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);cursor:pointer}
-select:focus{outline:2px solid var(--accent);outline-offset:1px}
-
-/* Footer */
+.legend span{display:flex;align-items:center;gap:5px}.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+select{font-family:inherit;font-size:0.88rem;padding:6px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text)}
 .footer{margin-top:3rem;padding:1.5rem 0;border-top:1px solid var(--border);color:var(--text3);font-size:0.82rem;text-align:center}
 .footer a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
 <div class="container">
-
 <div class="header">
   <h1>K-pop Photocard Resale Analytics</h1>
-  <p>755 completed Mercari transactions across 22 groups | Jan-Dec 2025</p>
-  <p style="margin-top:0.25rem"><a href="https://github.com/YOUR_USERNAME/kpop-photocard-analytics" target="_blank">View source on GitHub</a></p>
+  <p>868 completed Mercari transactions across 22+ groups | 2023 - 2025</p>
+  <p style="margin-top:0.25rem"><a href="https://github.com/emilyzzq817/kpop-photocard-analytics" target="_blank">View source on GitHub</a></p>
 </div>
-
-<!-- KPI STRIP -->
-<div class="metrics" id="kpi-strip">
-  <div class="metric"><div class="label">Sales</div><div class="value">755</div></div>
-  <div class="metric"><div class="label">Revenue</div><div class="value">$12,268</div></div>
-  <div class="metric"><div class="label">Net proceeds</div><div class="value">$10,893</div></div>
-  <div class="metric"><div class="label">Avg price</div><div class="value">$16.25</div></div>
-  <div class="metric"><div class="label">Groups sold</div><div class="value">22</div></div>
+<div class="metrics">
+  <div class="metric"><div class="label">Total sales</div><div class="value">868</div></div>
+  <div class="metric"><div class="label">Lifetime revenue</div><div class="value">$13,627</div></div>
+  <div class="metric"><div class="label">Net proceeds</div><div class="value">$12,228</div></div>
+  <div class="metric"><div class="label">2023 → 2025</div><div class="value" style="color:var(--green)">150x</div><div class="delta up">5 → 108 → 755 sales</div></div>
+  <div class="metric"><div class="label">Revenue growth</div><div class="value" style="color:var(--green)">183x</div><div class="delta up">$67 → $1,292 → $12,268</div></div>
   <div class="metric"><div class="label">States reached</div><div class="value">47</div></div>
 </div>
-
-<!-- MAIN NAV -->
 <div class="tabs" id="main-tabs">
-  <div class="tab active" onclick="showTab('annual',this)">Annual overview</div>
-  <div class="tab" onclick="showTab('quarterly',this)">Quarterly breakdown</div>
+  <div class="tab active" onclick="showTab('yoy',this)">Year-over-year</div>
+  <div class="tab" onclick="showTab('annual',this)">2025 overview</div>
+  <div class="tab" onclick="showTab('quarterly',this)">Quarterly</div>
   <div class="tab" onclick="showTab('groups',this)">Group deep-dive</div>
   <div class="tab" onclick="showTab('geo',this)">Geography</div>
   <div class="tab" onclick="showTab('pricing',this)">Pricing & fees</div>
 </div>
-
-<!-- ANNUAL -->
-<div class="section active" id="sec-annual">
-  <div class="chart-wrap">
-    <div class="chart-title">Monthly revenue and sales volume</div>
-    <div class="legend">
-      <span><i style="background:#2d5be3"></i>Revenue ($)</span>
-      <span><i style="background:#1a8c5e"></i>Sales count</span>
-    </div>
-    <div class="chart-container" style="height:300px"><canvas id="annualChart"></canvas></div>
+ 
+<!-- YOY -->
+<div class="section active" id="sec-yoy">
+  <div class="chart-row" style="margin-top:0">
+    <div class="chart-wrap"><div class="chart-title">Annual revenue</div><div style="position:relative;height:280px"><canvas id="yoyRevChart"></canvas></div></div>
+    <div class="chart-wrap"><div class="chart-title">Annual sales volume</div><div style="position:relative;height:280px"><canvas id="yoyCountChart"></canvas></div></div>
   </div>
-  <div class="insight-grid" style="margin-top:16px">
-    <div class="insight"><div class="tag hot">Peak season</div><div style="font-size:0.9rem">Sep-Nov generated $6,818 (56% of annual revenue). September alone had 158 sales, a 3x spike over the prior month.</div></div>
-    <div class="insight"><div class="tag cool">Slow season</div><div style="font-size:0.9rem">March was the quietest month with only 26 sales ($322). Q1 and Q2 combined made up just 25% of total revenue.</div></div>
+  <div class="chart-wrap" style="margin-top:16px"><div class="chart-title">Monthly sales timeline (all years)</div>
+    <div class="legend"><span><i style="background:#c2c0b6"></i>2023</span><span><i style="background:#85B7EB"></i>2024</span><span><i style="background:#2d5be3"></i>2025</span></div>
+    <div style="position:relative;height:320px"><canvas id="yoyTimelineChart"></canvas></div>
   </div>
   <div class="chart-row" style="margin-top:16px">
-    <div class="chart-wrap">
-      <div class="chart-title">Top 10 groups by revenue</div>
-      <div class="chart-container" style="height:360px"><canvas id="annualGroupChart"></canvas></div>
-    </div>
-    <div class="chart-wrap">
-      <div class="chart-title">Revenue by entertainment company</div>
-      <div class="chart-container" style="height:360px"><canvas id="companyChart"></canvas></div>
-    </div>
-  </div>
-</div>
-
-<!-- QUARTERLY -->
-<div class="section" id="sec-quarterly">
-  <div class="q-tabs">
-    <div class="q-tab active" onclick="showQuarter('Q1',this)">Q1</div>
-    <div class="q-tab" onclick="showQuarter('Q2',this)">Q2</div>
-    <div class="q-tab" onclick="showQuarter('Q3',this)">Q3</div>
-    <div class="q-tab" onclick="showQuarter('Q4',this)">Q4</div>
-  </div>
-  <div class="metrics" id="q-kpi"></div>
-  <div class="chart-row">
-    <div class="chart-wrap">
-      <div class="chart-title">Monthly within quarter</div>
-      <div class="chart-container" style="height:260px"><canvas id="qMonthChart"></canvas></div>
-    </div>
-    <div class="chart-wrap">
-      <div class="chart-title">Top groups this quarter</div>
-      <div class="chart-container" style="height:260px"><canvas id="qGroupChart"></canvas></div>
-    </div>
-  </div>
-  <div class="chart-wrap" style="margin-top:16px">
-    <div class="chart-title">Top member performers this quarter</div>
-    <div class="chart-container" style="height:280px"><canvas id="qMemberChart"></canvas></div>
-  </div>
-  <div class="chart-wrap" style="margin-top:16px">
-    <div class="chart-title">Top buyer states this quarter</div>
-    <div class="chart-container" style="height:240px"><canvas id="qStateChart"></canvas></div>
-  </div>
-  <div id="q-insights" style="margin-top:16px"></div>
-</div>
-
-<!-- GROUP DEEP-DIVE -->
-<div class="section" id="sec-groups">
-  <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem">
-    <label style="font-size:0.9rem;font-weight:500">Select group</label>
-    <select id="groupSelect" onchange="updateGroupView()"></select>
-  </div>
-  <div class="metrics" id="group-kpi"></div>
-  <div class="chart-wrap" style="margin-top:16px">
-    <div class="chart-title">Member avg price comparison</div>
-    <div class="chart-container" style="height:300px"><canvas id="memberAvgChart"></canvas></div>
-  </div>
-  <div class="chart-wrap" style="margin-top:16px">
-    <div class="chart-title">Member total revenue</div>
-    <div class="chart-container" style="height:300px"><canvas id="memberTotalChart"></canvas></div>
-  </div>
-</div>
-
-<!-- GEOGRAPHY -->
-<div class="section" id="sec-geo">
-  <div id="map-container" style="position:relative">
-    <div id="geoMap"></div>
-    <div id="map-tooltip"></div>
-  </div>
-  <div class="metrics" style="margin-top:16px">
-    <div class="metric"><div class="label">Top state</div><div class="value" style="font-size:1.1rem">California</div><div class="delta">163 orders | $2,369</div></div>
-    <div class="metric"><div class="label">Coverage</div><div class="value" style="font-size:1.1rem">47/50</div><div class="delta">states reached</div></div>
-    <div class="metric"><div class="label">Highest avg (3+ orders)</div><div class="value" style="font-size:1.1rem" id="highAvgState">-</div></div>
-  </div>
-  <div class="chart-wrap" style="margin-top:16px">
-    <div class="chart-title">Orders by state (top 15)</div>
-    <div class="chart-container" style="height:280px"><canvas id="stateBarChart"></canvas></div>
-  </div>
-</div>
-
-<!-- PRICING -->
-<div class="section" id="sec-pricing">
-  <div class="chart-row">
-    <div class="chart-wrap">
-      <div class="chart-title">Price distribution (non-bundle items)</div>
-      <div class="chart-container" style="height:260px"><canvas id="priceDistChart"></canvas></div>
-    </div>
-    <div class="chart-wrap">
-      <div class="chart-title">Revenue breakdown</div>
-      <div class="chart-container" style="height:260px"><canvas id="feeDonut"></canvas></div>
-    </div>
-  </div>
-  <div class="metrics" style="margin-top:16px">
-    <div class="metric"><div class="label">Mercari fee rate</div><div class="value">10.9%</div></div>
-    <div class="metric"><div class="label">Net take-home</div><div class="value">88.8%</div></div>
-    <div class="metric"><div class="label">Fees paid</div><div class="value" style="color:var(--red)">$1,338</div></div>
-    <div class="metric"><div class="label">Cancel rate</div><div class="value">3.0%</div></div>
+    <div class="chart-wrap"><div class="chart-title">Top groups across years</div><div style="position:relative;height:300px"><canvas id="yoyGroupChart"></canvas></div></div>
+    <div class="chart-wrap"><div class="chart-title">Avg price per sale</div><div style="position:relative;height:300px"><canvas id="yoyAvgChart"></canvas></div></div>
   </div>
   <div class="insight-grid" style="margin-top:16px">
-    <div class="insight"><div class="tag warn">Sweet spot</div><div style="font-size:0.9rem">The $5-15 range accounts for 46% of all items sold. Cards priced $5-10 move fastest by volume.</div></div>
-    <div class="insight"><div class="tag rise">High-value</div><div style="font-size:0.9rem">Only 20 items (2.9%) sold above $50, but they contributed $1,740 (14.2%) of total revenue.</div></div>
+    <div class="insight"><div class="tag rise">Scale-up</div><div style="font-size:0.9rem">Started with 5 SEVENTEEN photocards in late 2023. By 2025, expanded to 22 groups with 755 transactions and $12,268 revenue.</div></div>
+    <div class="insight"><div class="tag hot">Diversification</div><div style="font-size:0.9rem">2023: 1 group. 2024: 7 groups (added BND, TXT, IVE). 2025: 22 groups including CORTIS, Hearts2Hearts, MEOVV.</div></div>
+    <div class="insight"><div class="tag warn">Avg price rising</div><div style="font-size:0.9rem">Average sale price grew from $11.96 (2024) to $16.25 (2025), a 36% increase, suggesting better pricing strategy.</div></div>
+    <div class="insight"><div class="tag cool">Seasonality</div><div style="font-size:0.9rem">Both 2024 and 2025 show Oct-Nov as peak season. In 2025, Sep-Nov generated 51% of annual revenue.</div></div>
   </div>
 </div>
-
-<div class="footer">
-  Built with Python, Chart.js, and D3.js | Data from Mercari seller reports | <a href="https://github.com/YOUR_USERNAME/kpop-photocard-analytics">GitHub</a>
+ 
+<!-- 2025 ANNUAL -->
+<div class="section" id="sec-annual">
+  <div class="chart-wrap"><div class="chart-title">Monthly revenue and sales volume (2025)</div>
+    <div class="legend"><span><i style="background:#2d5be3"></i>Revenue ($)</span><span><i style="background:#1a8c5e"></i>Sales count</span></div>
+    <div style="position:relative;height:300px"><canvas id="annualChart"></canvas></div>
+  </div>
+  <div class="chart-row" style="margin-top:16px">
+    <div class="chart-wrap"><div class="chart-title">Top 10 groups by revenue</div><div style="position:relative;height:360px"><canvas id="annualGroupChart"></canvas></div></div>
+    <div class="chart-wrap"><div class="chart-title">Revenue by company</div><div style="position:relative;height:360px"><canvas id="companyChart"></canvas></div></div>
+  </div>
 </div>
-
+ 
+<!-- QUARTERLY -->
+<div class="section" id="sec-quarterly">
+  <div class="q-tabs"><div class="q-tab active" onclick="showQuarter('Q1',this)">Q1</div><div class="q-tab" onclick="showQuarter('Q2',this)">Q2</div><div class="q-tab" onclick="showQuarter('Q3',this)">Q3</div><div class="q-tab" onclick="showQuarter('Q4',this)">Q4</div></div>
+  <div class="metrics" id="q-kpi"></div>
+  <div class="chart-row">
+    <div class="chart-wrap"><div class="chart-title">Monthly within quarter</div><div style="position:relative;height:260px"><canvas id="qMonthChart"></canvas></div></div>
+    <div class="chart-wrap"><div class="chart-title">Top groups</div><div style="position:relative;height:260px"><canvas id="qGroupChart"></canvas></div></div>
+  </div>
+  <div class="chart-wrap" style="margin-top:16px"><div class="chart-title">Top member performers</div><div style="position:relative;height:280px"><canvas id="qMemberChart"></canvas></div></div>
+  <div id="q-insights" style="margin-top:16px"></div>
 </div>
-
+ 
+<!-- GROUP -->
+<div class="section" id="sec-groups">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.5rem"><label style="font-size:0.9rem;font-weight:500">Select group</label><select id="groupSelect" onchange="updateGroupView()"></select></div>
+  <div class="metrics" id="group-kpi"></div>
+  <div class="chart-wrap" style="margin-top:16px"><div class="chart-title">Member avg price</div><div style="position:relative;height:300px"><canvas id="memberAvgChart"></canvas></div></div>
+  <div class="chart-wrap" style="margin-top:16px"><div class="chart-title">Member total revenue</div><div style="position:relative;height:300px"><canvas id="memberTotalChart"></canvas></div></div>
+</div>
+ 
+<!-- GEO -->
+<div class="section" id="sec-geo">
+  <div id="map-container" style="position:relative"><div id="geoMap"></div><div id="map-tooltip"></div></div>
+  <div class="metrics" style="margin-top:16px">
+    <div class="metric"><div class="label">Top state</div><div class="value" style="font-size:1.1rem">California</div><div class="delta">192 orders (all years)</div></div>
+    <div class="metric"><div class="label">Coverage</div><div class="value" style="font-size:1.1rem">47/50</div></div>
+    <div class="metric"><div class="label">Highest avg (3+)</div><div class="value" style="font-size:1.1rem" id="highAvgState">-</div></div>
+  </div>
+  <div class="chart-wrap" style="margin-top:16px"><div class="chart-title">Orders by state (top 15)</div><div style="position:relative;height:280px"><canvas id="stateBarChart"></canvas></div></div>
+</div>
+ 
+<!-- PRICING -->
+<div class="section" id="sec-pricing">
+  <div class="chart-row" style="margin-top:0">
+    <div class="chart-wrap"><div class="chart-title">Price distribution (2025)</div><div style="position:relative;height:260px"><canvas id="priceDistChart"></canvas></div></div>
+    <div class="chart-wrap"><div class="chart-title">Revenue breakdown</div><div style="position:relative;height:260px"><canvas id="feeDonut"></canvas></div></div>
+  </div>
+  <div class="metrics" style="margin-top:16px">
+    <div class="metric"><div class="label">Mercari fee</div><div class="value">10.9%</div></div>
+    <div class="metric"><div class="label">Net take-home</div><div class="value">88.8%</div></div>
+    <div class="metric"><div class="label">Total fees</div><div class="value" style="color:var(--red)">$1,399</div></div>
+    <div class="metric"><div class="label">Cancel rate</div><div class="value">3.3%</div></div>
+  </div>
+</div>
+ 
+<div class="footer">Built with Python, Chart.js & D3.js | <a href="https://github.com/emilyzzq817/kpop-photocard-analytics">GitHub</a></div>
+</div>
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script>
-// === CHART DEFAULTS ===
-const CS = getComputedStyle(document.documentElement);
-Chart.defaults.font.family = "'DM Sans', system-ui, sans-serif";
-Chart.defaults.font.size = 12;
-Chart.defaults.color = '#6b6a65';
-Chart.defaults.borderColor = '#e8e7e2';
-
-const COLORS = ['#2d5be3','#1a8c5e','#6b4ed6','#c94e28','#c94578','#b07818','#0f7062','#c93a3a','#4578c9','#8c6b1a','#5e1a8c','#287ac9'];
-
-// === DATA ===
-const annualGroups = {"IVE":{count:85,revenue:1628,avg:19.15},"TXT":{count:86,revenue:1412.94,avg:16.43},"ENHYPEN":{count:72,revenue:1014.95,avg:14.1},"SEVENTEEN":{count:51,revenue:814.7,avg:15.97},"BOYNEXTDOOR":{count:35,revenue:438.68,avg:12.53},"Hearts2Hearts":{count:32,revenue:425.05,avg:13.28},"ILLIT":{count:32,revenue:406,avg:12.69},"CORTIS":{count:29,revenue:376.05,avg:12.97},"MEOVV":{count:32,revenue:314,avg:9.81},"ITZY":{count:25,revenue:248.24,avg:9.93},"aespa":{count:36,revenue:243.8,avg:6.77},"TWS":{count:18,revenue:198.75,avg:11.04},"Kickflip":{count:25,revenue:176.25,avg:7.05},"KiiiKiii":{count:15,revenue:115,avg:7.67},"NMIXX":{count:12,revenue:112.99,avg:9.42},"SayMyName":{count:14,revenue:97.55,avg:6.97},"RIIZE":{count:6,revenue:82,avg:13.67},"NCT":{count:6,revenue:49,avg:8.17}};
-
-const groupMembers = {"IVE":{"Wonyoung":{count:3,avg:22.87,total:68.6},"Yujin":{count:5,avg:8.9,total:44.5},"Rei":{count:3,avg:11.67,total:35},"Liz":{count:4,avg:7.75,total:31},"Gaeul":{count:2,avg:7.75,total:15.5},"Leeseo":{count:2,avg:7.35,total:14.7}},"TXT":{"Yeonjun":{count:25,avg:19.77,total:494.25},"Soobin":{count:19,avg:12.08,total:229.49},"Beomgyu":{count:8,avg:9.56,total:76.5},"Hueningkai":{count:9,avg:8.46,total:76.1},"Taehyun":{count:7,avg:9.37,total:65.6}},"ENHYPEN":{"Heeseung":{count:16,avg:25.89,total:414.2},"Sunghoon":{count:12,avg:14.84,total:178.1},"Jake":{count:10,avg:12.1,total:121},"Ni-ki":{count:12,avg:8.54,total:102.5},"Jungwon":{count:7,avg:11.36,total:79.5},"Jay":{count:8,avg:8.75,total:70},"Sunoo":{count:7,avg:7.09,total:49.65}},"SEVENTEEN":{"Hoshi":{count:9,avg:28.11,total:253},"DK":{count:3,avg:28.4,total:85.2},"Wonwoo":{count:6,avg:13,total:78},"Jun":{count:10,avg:7.19,total:71.85},"Jeonghan":{count:3,avg:18.33,total:55},"S.Coups":{count:3,avg:13.67,total:41},"Dino":{count:4,avg:9,total:36},"Seungkwan":{count:2,avg:15,total:30},"Joshua":{count:2,avg:14,total:28},"Mingyu":{count:2,avg:8,total:16},"Woozi":{count:2,avg:4.5,total:9},"Vernon":{count:1,avg:8.1,total:8.1}},"BOYNEXTDOOR":{"Jaehyun":{count:14,avg:13.98,total:195.66},"Leehan":{count:6,avg:9.23,total:55.4},"Taesan":{count:2,avg:10.4,total:20.8},"Riwoo":{count:2,avg:3.75,total:7.5}},"ILLIT":{"Moka":{count:11,avg:15.82,total:174},"Minju":{count:3,avg:26,total:78},"Iroha":{count:5,avg:10.1,total:50.5},"Yunah":{count:8,avg:5.56,total:44.5},"Wonhee":{count:3,avg:13,total:39}},"ITZY":{"Ryujin":{count:11,avg:8.98,total:98.8},"Yeji":{count:5,avg:12.95,total:64.75},"Chaeryeong":{count:4,avg:8.88,total:35.5},"Yuna":{count:3,avg:9.73,total:29.19},"Lia":{count:1,avg:12,total:12}},"aespa":{"Karina":{count:10,avg:11.05,total:110.5},"NingNing":{count:4,avg:5.88,total:23.5},"Winter":{count:4,avg:5.12,total:20.5},"Giselle":{count:3,avg:6.67,total:20}},"TWS":{"Shinyu":{count:3,avg:16.33,total:49},"Hanjin":{count:3,avg:16,total:48},"Jihoon":{count:4,avg:10.81,total:43.25},"Kyungmin":{count:3,avg:8.67,total:26},"Dohoon":{count:3,avg:8.17,total:24.5},"Youngjae":{count:2,avg:4,total:8}},"NMIXX":{"Sullyoon":{count:3,avg:9.92,total:29.75},"Kyujin":{count:2,avg:10.5,total:21},"Bae":{count:2,avg:7.8,total:15.6},"Lily":{count:2,avg:7.75,total:15.5},"Haewon":{count:2,avg:7.07,total:14.14},"Jiwoo":{count:1,avg:7,total:7}},"RIIZE":{"Wonbin":{count:2,avg:23.5,total:47},"Anton":{count:2,avg:10,total:20},"Sungchan":{count:1,avg:10,total:10},"Eunseok":{count:1,avg:5,total:5}}};
-
-const monthly = {labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],revenue:[765.55,518.5,322.1,331.3,355.05,752.61,316,957.8,2394.13,2094.51,2329.39,1093.28],count:[46,31,26,24,32,61,35,51,158,122,106,60]};
-
-const geo = {"California":{count:163,revenue:2368.9,avg:14.53},"Texas":{count:61,revenue:783.36,avg:12.84},"Florida":{count:46,revenue:846.35,avg:18.4},"New York":{count:44,revenue:567.9,avg:12.91},"Illinois":{count:38,revenue:489.1,avg:12.87},"Washington":{count:33,revenue:636,avg:19.27},"North Carolina":{count:31,revenue:557.2,avg:17.97},"Pennsylvania":{count:28,revenue:367.3,avg:13.12},"Virginia":{count:24,revenue:565.79,avg:23.57},"Ohio":{count:23,revenue:312.7,avg:13.6},"Georgia":{count:20,revenue:275.63,avg:13.78},"New Jersey":{count:18,revenue:316.9,avg:17.61},"Michigan":{count:18,revenue:240.25,avg:13.35},"Massachusetts":{count:16,revenue:202.8,avg:12.68},"Arizona":{count:14,revenue:170.89,avg:12.21},"Tennessee":{count:13,revenue:258.1,avg:19.85},"Oregon":{count:13,revenue:185.3,avg:14.25},"Indiana":{count:12,revenue:163.75,avg:13.65},"Maryland":{count:11,revenue:180.55,avg:16.41},"Missouri":{count:11,revenue:191.52,avg:17.41},"Hawaii":{count:10,revenue:182.35,avg:18.24},"Minnesota":{count:9,revenue:235.8,avg:26.2}};
-
-const qData = {"Q1":{"sales":106,"revenue":1644.15,"net":1467.56,"avg_price":15.51,"groups":{"SEVENTEEN":{"count":17,"revenue":367.0,"avg":21.59,"members":{"Hoshi":{"count":2,"avg":87.5,"total":175.0},"Jeonghan":{"count":3,"avg":18.33,"total":55.0},"Wonwoo":{"count":2,"avg":17.5,"total":35.0},"Seungkwan":{"count":2,"avg":15.0,"total":30.0},"S.Coups":{"count":3,"avg":9.0,"total":27.0}}},"TXT":{"count":23,"revenue":306.0,"avg":13.3,"members":{"Soobin":{"count":7,"avg":16.79,"total":117.5},"Yeonjun":{"count":7,"avg":14.14,"total":99.0},"Beomgyu":{"count":5,"avg":10.3,"total":51.5}}},"IVE":{"count":17,"revenue":250.4,"avg":14.73,"members":{"Wonyoung":{"count":3,"avg":22.87,"total":68.6},"Rei":{"count":3,"avg":11.67,"total":35.0}}},"ITZY":{"count":14,"revenue":169.5,"avg":12.11,"members":{"Yeji":{"count":4,"avg":18.75,"total":75.0},"Ryujin":{"count":6,"avg":10.0,"total":60.0}}},"aespa":{"count":4,"revenue":51.0,"avg":12.75,"members":{"Karina":{"count":4,"avg":12.75,"total":51.0}}}},"states":{"California":{"count":32,"revenue":453.0},"Washington":{"count":7,"revenue":148.5},"Texas":{"count":7,"revenue":139.25},"Ohio":{"count":4,"revenue":48.5},"Tennessee":{"count":4,"revenue":126.0}},"monthly":{"Jan":{"count":49,"revenue":803.55},"Feb":{"count":31,"revenue":518.5},"Mar":{"count":26,"revenue":322.1}}},"Q2":{"sales":117,"revenue":1438.96,"net":1281.34,"avg_price":12.3,"groups":{"ENHYPEN":{"count":17,"revenue":215.0,"avg":12.65,"members":{"Heeseung":{"count":7,"avg":13.57,"total":95.0},"Sunghoon":{"count":6,"avg":14.5,"total":87.0}}},"IVE":{"count":9,"revenue":172.0,"avg":19.11,"members":{}},"TXT":{"count":5,"revenue":125.8,"avg":25.16,"members":{"Yeonjun":{"count":4,"avg":28.45,"total":113.8}}},"SEVENTEEN":{"count":12,"revenue":111.0,"avg":9.25,"members":{"Wonwoo":{"count":3,"avg":9.33,"total":28.0}}},"BOYNEXTDOOR":{"count":12,"revenue":98.56,"avg":8.21,"members":{"Jaehyun":{"count":6,"avg":10.61,"total":63.66}}}},"states":{"California":{"count":34,"revenue":448.8},"Texas":{"count":11,"revenue":105.16},"New York":{"count":8,"revenue":62.2},"Illinois":{"count":6,"revenue":104.7},"Georgia":{"count":6,"revenue":73.3}},"monthly":{"Apr":{"count":24,"revenue":331.3},"May":{"count":32,"revenue":355.05},"Jun":{"count":61,"revenue":752.61}}},"Q3":{"sales":244,"revenue":3667.93,"net":3235.12,"avg_price":15.03,"groups":{"ENHYPEN":{"count":41,"revenue":437.25,"avg":10.66,"members":{"Jake":{"count":9,"avg":11.33,"total":102.0},"Ni-ki":{"count":9,"avg":8.94,"total":80.5},"Jungwon":{"count":5,"avg":11.7,"total":58.5}}},"IVE":{"count":21,"revenue":301.2,"avg":14.34,"members":{}},"ILLIT":{"count":21,"revenue":295.0,"avg":14.05,"members":{"Moka":{"count":9,"avg":16.67,"total":150.0},"Minju":{"count":3,"avg":26.0,"total":78.0}}},"CORTIS":{"count":15,"revenue":236.05,"avg":15.74,"members":{}},"TXT":{"count":20,"revenue":174.5,"avg":8.72,"members":{"Yeonjun":{"count":5,"avg":9.1,"total":45.5},"Taehyun":{"count":3,"avg":14.33,"total":43.0}}}},"states":{"California":{"count":47,"revenue":555.45},"New York":{"count":18,"revenue":201.7},"Texas":{"count":18,"revenue":218.1},"Florida":{"count":18,"revenue":507.5},"Illinois":{"count":13,"revenue":219.0}},"monthly":{"Jul":{"count":35,"revenue":316.0},"Aug":{"count":51,"revenue":957.8},"Sep":{"count":158,"revenue":2394.13}}},"Q4":{"sales":288,"revenue":5517.18,"net":4909.29,"avg_price":19.16,"groups":{"IVE":{"count":38,"revenue":904.4,"avg":23.8,"members":{"Yujin":{"count":1,"avg":11.4,"total":11.4}}},"TXT":{"count":38,"revenue":806.64,"avg":21.23,"members":{"Yeonjun":{"count":9,"avg":26.22,"total":236.0},"Soobin":{"count":5,"avg":11.39,"total":56.94}}},"ENHYPEN":{"count":14,"revenue":362.7,"avg":25.91,"members":{"Heeseung":{"count":6,"avg":43.87,"total":263.2},"Sunghoon":{"count":3,"avg":11.03,"total":33.1}}},"Hearts2Hearts":{"count":26,"revenue":317.05,"avg":12.19,"members":{}},"BOYNEXTDOOR":{"count":17,"revenue":297.8,"avg":17.52,"members":{"Jaehyun":{"count":5,"avg":20.6,"total":103.0},"Leehan":{"count":3,"avg":10.83,"total":32.5}}}},"states":{"California":{"count":50,"revenue":911.65},"Texas":{"count":25,"revenue":320.85},"Florida":{"count":18,"revenue":214.35},"New York":{"count":16,"revenue":275.0},"Illinois":{"count":16,"revenue":136.4}},"monthly":{"Oct":{"count":122,"revenue":2094.51},"Nov":{"count":106,"revenue":2329.39},"Dec":{"count":60,"revenue":1093.28}}}};
-
-const qInsights = {
-  Q1: '<div class="insight"><div class="tag cool">Slow start</div><div style="font-size:0.9rem">Q1 was the quietest quarter ($1,644). SEVENTEEN led revenue thanks to Hoshi\'s $87.50 avg, but overall volume was low as post-holiday demand cooled.</div></div><div class="insight"><div class="tag rise">ITZY strong</div><div style="font-size:0.9rem">ITZY had their best quarter with 14 sales. Yeji averaged $18.75, the highest non-Hoshi member price this quarter.</div></div>',
-  Q2: '<div class="insight"><div class="tag rise">ENHYPEN arrives</div><div style="font-size:0.9rem">ENHYPEN entered the top spot for the first time. June saw a 2.5x volume spike (61 sales) as summer demand kicked in.</div></div><div class="insight"><div class="tag hot">TXT Yeonjun</div><div style="font-size:0.9rem">TXT Yeonjun averaged $28.45 this quarter, the highest individual member avg price, despite only 4 items sold.</div></div>',
-  Q3: '<div class="insight"><div class="tag hot">Explosion</div><div style="font-size:0.9rem">Q3 revenue was 2.5x Q2. September alone ($2,394) exceeded entire Q1+Q2 combined. ENHYPEN dominated with 41 items sold.</div></div><div class="insight"><div class="tag rise">New groups emerge</div><div style="font-size:0.9rem">ILLIT and CORTIS broke into the top 5 for the first time. ILLIT Minju averaged $26, and CORTIS generated $236 from 15 items.</div></div>',
-  Q4: '<div class="insight"><div class="tag hot">Record quarter</div><div style="font-size:0.9rem">Q4 was the biggest quarter at $5,517 (45% of annual revenue). Avg price hit $19.16, highest of any quarter.</div></div><div class="insight"><div class="tag rise">Heeseung premium</div><div style="font-size:0.9rem">ENHYPEN Heeseung averaged $43.87 in Q4, nearly 3x the overall avg. Hearts2Hearts emerged as a major seller with 26 items.</div></div>'
-};
-
-const priceDist = {labels:['$0-5','$5-10','$10-15','$15-20','$20-30','$30-50','$50+'],data:[146,168,145,87,73,43,20]};
-
+Chart.defaults.font.family="'DM Sans',system-ui";Chart.defaults.font.size=12;Chart.defaults.color='#6b6a65';Chart.defaults.borderColor='#e8e7e2';
+const C=['#2d5be3','#1a8c5e','#6b4ed6','#c94e28','#c94578','#b07818','#0f7062','#c93a3a','#4578c9','#8c6b1a','#5e1a8c','#287ac9'];
+const yoyMonthly={"2023-11":{c:2,r:30},"2023-12":{c:3,r:36.9},"2024-01":{c:1,r:34.2},"2024-02":{c:2,r:45},"2024-04":{c:6,r:150.16},"2024-05":{c:1,r:5.7},"2024-08":{c:5,r:33},"2024-09":{c:8,r:86.5},"2024-10":{c:30,r:322},"2024-11":{c:34,r:367.6},"2024-12":{c:21,r:247.55},"2025-01":{c:46,r:765.55},"2025-02":{c:31,r:518.5},"2025-03":{c:26,r:322.1},"2025-04":{c:24,r:331.3},"2025-05":{c:32,r:355.05},"2025-06":{c:61,r:752.61},"2025-07":{c:35,r:316},"2025-08":{c:51,r:957.8},"2025-09":{c:158,r:2394.13},"2025-10":{c:122,r:2094.51},"2025-11":{c:106,r:2329.39},"2025-12":{c:60,r:1093.28}};
+const monthly2025={labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],revenue:[765.55,518.5,322.1,331.3,355.05,752.61,316,957.8,2394.13,2094.51,2329.39,1093.28],count:[46,31,26,24,32,61,35,51,158,122,106,60]};
+const annualGroups={"IVE":{count:85,revenue:1628,avg:19.15},"TXT":{count:86,revenue:1412.94,avg:16.43},"ENHYPEN":{count:72,revenue:1014.95,avg:14.1},"SEVENTEEN":{count:51,revenue:814.7,avg:15.97},"BOYNEXTDOOR":{count:35,revenue:438.68,avg:12.53},"Hearts2Hearts":{count:32,revenue:425.05,avg:13.28},"ILLIT":{count:32,revenue:406,avg:12.69},"CORTIS":{count:29,revenue:376.05,avg:12.97},"MEOVV":{count:32,revenue:314,avg:9.81},"ITZY":{count:25,revenue:248.24,avg:9.93}};
+const groupMembers={"IVE":{"Wonyoung":{count:3,avg:22.87,total:68.6},"Yujin":{count:5,avg:8.9,total:44.5},"Rei":{count:3,avg:11.67,total:35},"Liz":{count:4,avg:7.75,total:31},"Gaeul":{count:2,avg:7.75,total:15.5},"Leeseo":{count:2,avg:7.35,total:14.7}},"TXT":{"Yeonjun":{count:25,avg:19.77,total:494.25},"Soobin":{count:19,avg:12.08,total:229.49},"Beomgyu":{count:8,avg:9.56,total:76.5},"Hueningkai":{count:9,avg:8.46,total:76.1},"Taehyun":{count:7,avg:9.37,total:65.6}},"ENHYPEN":{"Heeseung":{count:16,avg:25.89,total:414.2},"Sunghoon":{count:12,avg:14.84,total:178.1},"Jake":{count:10,avg:12.1,total:121},"Ni-ki":{count:12,avg:8.54,total:102.5},"Jungwon":{count:7,avg:11.36,total:79.5},"Jay":{count:8,avg:8.75,total:70},"Sunoo":{count:7,avg:7.09,total:49.65}},"SEVENTEEN":{"Hoshi":{count:9,avg:28.11,total:253},"DK":{count:3,avg:28.4,total:85.2},"Wonwoo":{count:6,avg:13,total:78},"Jun":{count:10,avg:7.19,total:71.85},"Jeonghan":{count:3,avg:18.33,total:55},"S.Coups":{count:3,avg:13.67,total:41},"Dino":{count:4,avg:9,total:36},"Seungkwan":{count:2,avg:15,total:30},"Joshua":{count:2,avg:14,total:28},"Mingyu":{count:2,avg:8,total:16},"Woozi":{count:2,avg:4.5,total:9},"Vernon":{count:1,avg:8.1,total:8.1}},"BOYNEXTDOOR":{"Jaehyun":{count:14,avg:13.98,total:195.66},"Leehan":{count:6,avg:9.23,total:55.4},"Taesan":{count:2,avg:10.4,total:20.8},"Riwoo":{count:2,avg:3.75,total:7.5}},"ILLIT":{"Moka":{count:11,avg:15.82,total:174},"Minju":{count:3,avg:26,total:78},"Iroha":{count:5,avg:10.1,total:50.5},"Yunah":{count:8,avg:5.56,total:44.5},"Wonhee":{count:3,avg:13,total:39}},"ITZY":{"Ryujin":{count:11,avg:8.98,total:98.8},"Yeji":{count:5,avg:12.95,total:64.75},"Chaeryeong":{count:4,avg:8.88,total:35.5},"Yuna":{count:3,avg:9.73,total:29.19},"Lia":{count:1,avg:12,total:12}},"aespa":{"Karina":{count:10,avg:11.05,total:110.5},"NingNing":{count:4,avg:5.88,total:23.5},"Winter":{count:4,avg:5.12,total:20.5},"Giselle":{count:3,avg:6.67,total:20}},"TWS":{"Shinyu":{count:3,avg:16.33,total:49},"Hanjin":{count:3,avg:16,total:48},"Jihoon":{count:4,avg:10.81,total:43.25},"Kyungmin":{count:3,avg:8.67,total:26},"Dohoon":{count:3,avg:8.17,total:24.5},"Youngjae":{count:2,avg:4,total:8}},"NMIXX":{"Sullyoon":{count:3,avg:9.92,total:29.75},"Kyujin":{count:2,avg:10.5,total:21},"Bae":{count:2,avg:7.8,total:15.6},"Lily":{count:2,avg:7.75,total:15.5},"Haewon":{count:2,avg:7.07,total:14.14},"Jiwoo":{count:1,avg:7,total:7}},"RIIZE":{"Wonbin":{count:2,avg:23.5,total:47},"Anton":{count:2,avg:10,total:20},"Sungchan":{count:1,avg:10,total:10},"Eunseok":{count:1,avg:5,total:5}}};
+const geo={"California":{count:163,revenue:2368.9,avg:14.53},"Texas":{count:61,revenue:783.36,avg:12.84},"Florida":{count:46,revenue:846.35,avg:18.4},"New York":{count:44,revenue:567.9,avg:12.91},"Illinois":{count:38,revenue:489.1,avg:12.87},"Washington":{count:33,revenue:636,avg:19.27},"North Carolina":{count:31,revenue:557.2,avg:17.97},"Pennsylvania":{count:28,revenue:367.3,avg:13.12},"Virginia":{count:24,revenue:565.79,avg:23.57},"Ohio":{count:23,revenue:312.7,avg:13.6},"Georgia":{count:20,revenue:275.63,avg:13.78},"New Jersey":{count:18,revenue:316.9,avg:17.61},"Michigan":{count:18,revenue:240.25,avg:13.35},"Massachusetts":{count:16,revenue:202.8,avg:12.68},"Arizona":{count:14,revenue:170.89,avg:12.21}};
+const priceDist={labels:['$0-5','$5-10','$10-15','$15-20','$20-30','$30-50','$50+'],data:[146,168,145,87,73,43,20]};
+const qData={"Q1":{sales:106,revenue:1644.15,net:1467.56,avg_price:15.51,groups:{"SEVENTEEN":{count:17,revenue:367,avg:21.59,members:{"Hoshi":{count:2,avg:87.5,total:175},"Jeonghan":{count:3,avg:18.33,total:55}}},"TXT":{count:23,revenue:306,avg:13.3,members:{"Soobin":{count:7,avg:16.79,total:117.5},"Yeonjun":{count:7,avg:14.14,total:99}}},"IVE":{count:17,revenue:250.4,avg:14.73,members:{"Wonyoung":{count:3,avg:22.87,total:68.6}}},"ITZY":{count:14,revenue:169.5,avg:12.11,members:{"Yeji":{count:4,avg:18.75,total:75},"Ryujin":{count:6,avg:10,total:60}}}},states:{"California":{count:32}},monthly:{"Jan":{count:49,revenue:803.55},"Feb":{count:31,revenue:518.5},"Mar":{count:26,revenue:322.1}}},"Q2":{sales:117,revenue:1438.96,net:1281.34,avg_price:12.3,groups:{"ENHYPEN":{count:17,revenue:215,avg:12.65,members:{"Heeseung":{count:7,avg:13.57,total:95},"Sunghoon":{count:6,avg:14.5,total:87}}},"IVE":{count:9,revenue:172,avg:19.11,members:{}},"TXT":{count:5,revenue:125.8,avg:25.16,members:{"Yeonjun":{count:4,avg:28.45,total:113.8}}},"SEVENTEEN":{count:12,revenue:111,avg:9.25,members:{}},"BOYNEXTDOOR":{count:12,revenue:98.56,avg:8.21,members:{"Jaehyun":{count:6,avg:10.61,total:63.66}}}},states:{"California":{count:34}},monthly:{"Apr":{count:24,revenue:331.3},"May":{count:32,revenue:355.05},"Jun":{count:61,revenue:752.61}}},"Q3":{sales:244,revenue:3667.93,net:3235.12,avg_price:15.03,groups:{"ENHYPEN":{count:41,revenue:437.25,avg:10.66,members:{"Jake":{count:9,avg:11.33,total:102},"Ni-ki":{count:9,avg:8.94,total:80.5},"Jungwon":{count:5,avg:11.7,total:58.5}}},"IVE":{count:21,revenue:301.2,avg:14.34,members:{}},"ILLIT":{count:21,revenue:295,avg:14.05,members:{"Moka":{count:9,avg:16.67,total:150},"Minju":{count:3,avg:26,total:78}}},"CORTIS":{count:15,revenue:236.05,avg:15.74,members:{}},"TXT":{count:20,revenue:174.5,avg:8.72,members:{"Taehyun":{count:3,avg:14.33,total:43}}}},states:{"California":{count:47}},monthly:{"Jul":{count:35,revenue:316},"Aug":{count:51,revenue:957.8},"Sep":{count:158,revenue:2394.13}}},"Q4":{sales:288,revenue:5517.18,net:4909.29,avg_price:19.16,groups:{"IVE":{count:38,revenue:904.4,avg:23.8,members:{}},"TXT":{count:38,revenue:806.64,avg:21.23,members:{"Yeonjun":{count:9,avg:26.22,total:236},"Soobin":{count:5,avg:11.39,total:56.94}}},"ENHYPEN":{count:14,revenue:362.7,avg:25.91,members:{"Heeseung":{count:6,avg:43.87,total:263.2}}},"Hearts2Hearts":{count:26,revenue:317.05,avg:12.19,members:{}},"BOYNEXTDOOR":{count:17,revenue:297.8,avg:17.52,members:{"Jaehyun":{count:5,avg:20.6,total:103}}}},states:{"California":{count:50}},monthly:{"Oct":{count:122,revenue:2094.51},"Nov":{count:106,revenue:2329.39},"Dec":{count:60,revenue:1093.28}}}};
+const qInsights={Q1:'<div class="insight"><div class="tag cool">Slow start</div><div style="font-size:0.9rem">SEVENTEEN led Q1 thanks to Hoshi avg $87.50. Quietest quarter at $1,644.</div></div><div class="insight"><div class="tag rise">ITZY strong</div><div style="font-size:0.9rem">ITZY had 14 sales, best quarter. Yeji averaged $18.75.</div></div>',Q2:'<div class="insight"><div class="tag rise">ENHYPEN arrives</div><div style="font-size:0.9rem">ENHYPEN hit #1 for the first time. June saw 2.5x volume spike to 61 sales.</div></div><div class="insight"><div class="tag hot">TXT Yeonjun</div><div style="font-size:0.9rem">Yeonjun averaged $28.45, highest individual member avg this quarter.</div></div>',Q3:'<div class="insight"><div class="tag hot">Explosion</div><div style="font-size:0.9rem">Q3 revenue 2.5x Q2. September ($2,394) exceeded entire Q1+Q2 combined.</div></div><div class="insight"><div class="tag rise">New groups</div><div style="font-size:0.9rem">ILLIT and CORTIS broke top 5. ILLIT Minju averaged $26.</div></div>',Q4:'<div class="insight"><div class="tag hot">Record</div><div style="font-size:0.9rem">$5,517 revenue (45% of annual). ENHYPEN Heeseung averaged $43.87.</div></div><div class="insight"><div class="tag rise">Hearts2Hearts</div><div style="font-size:0.9rem">Hearts2Hearts emerged with 26 items in Q4 alone.</div></div>'};
+ 
 // === TAB LOGIC ===
-const initialized = {};
-function showTab(id, el) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+const inited={};
+function showTab(id,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.getElementById('sec-'+id).classList.add('active');
-  document.querySelectorAll('#main-tabs .tab').forEach(t => t.classList.remove('active'));
-  if(el) el.classList.add('active');
-  // Lazy init charts that need visible container
+  document.querySelectorAll('#main-tabs .tab').forEach(t=>t.classList.remove('active'));
+  if(el)el.classList.add('active');
   setTimeout(()=>{
-    if(id==='groups' && !initialized.groups){ updateGroupView(); initialized.groups=true; }
-    if(id==='geo' && !initialized.geo){ initGeo(); initialized.geo=true; }
-    if(id==='pricing' && !initialized.pricing){ initPricing(); initialized.pricing=true; }
-    if(id==='quarterly' && !initialized.quarterly){ showQuarter('Q1', document.querySelector('.q-tab')); initialized.quarterly=true; }
-  }, 50);
+    if(id==='annual'&&!inited.annual){initAnnual();inited.annual=1}
+    if(id==='quarterly'&&!inited.quarterly){showQuarter('Q1',document.querySelector('.q-tab'));inited.quarterly=1}
+    if(id==='groups'&&!inited.groups){updateGroupView();inited.groups=1}
+    if(id==='geo'&&!inited.geo){initGeo();inited.geo=1}
+    if(id==='pricing'&&!inited.pricing){initPricing();inited.pricing=1}
+  },50);
 }
-
-// === ANNUAL CHARTS ===
-new Chart(document.getElementById('annualChart'), {
-  type:'bar', data:{labels:monthly.labels,datasets:[
-    {label:'Revenue',data:monthly.revenue,backgroundColor:'#2d5be3',borderRadius:4,yAxisID:'y',order:1},
-    {label:'Count',data:monthly.count,type:'line',borderColor:'#1a8c5e',pointBackgroundColor:'#1a8c5e',pointRadius:4,tension:0.3,yAxisID:'y1',order:0}
-  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{
-    x:{grid:{display:false},ticks:{autoSkip:false}},
-    y:{position:'left',title:{display:true,text:'Revenue ($)'}},
-    y1:{position:'right',title:{display:true,text:'Count'},grid:{display:false}}
-  }}
-});
-
-const top10 = Object.entries(annualGroups).slice(0,10);
-new Chart(document.getElementById('annualGroupChart'), {
-  type:'bar',data:{labels:top10.map(g=>g[0]),datasets:[{data:top10.map(g=>g[1].revenue),backgroundColor:COLORS,borderRadius:4}]},
-  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:ctx=>{const g=top10[ctx.dataIndex];return g[1].count+' items | avg $'+g[1].avg}}}},scales:{x:{title:{display:true,text:'Revenue ($)'}},y:{grid:{display:false}}}}
-});
-
-// Company chart
-const companies = {HYBE:{rev:4497,pct:36.6},SM:{rev:1389,pct:11.3},Starship:{rev:1628,pct:13.3},JYP:{rev:614,pct:5.0},Other:{rev:2140,pct:17.4}};
-new Chart(document.getElementById('companyChart'), {
-  type:'doughnut',data:{labels:Object.keys(companies),datasets:[{data:Object.values(companies).map(c=>c.rev),backgroundColor:COLORS.slice(0,5),borderWidth:0}]},
-  options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{position:'bottom',labels:{padding:12,usePointStyle:true,pointStyle:'rectRounded'}}}}
-});
-
-// === QUARTERLY ===
-let qCharts = {};
-function showQuarter(q, el) {
-  document.querySelectorAll('.q-tab').forEach(t=>t.classList.remove('active'));
-  if(el) el.classList.add('active');
-  const d = qData[q];
-  // KPIs
-  const prevQ = {Q1:null,Q2:'Q1',Q3:'Q2',Q4:'Q3'}[q];
-  const prevRev = prevQ ? qData[prevQ].revenue : null;
-  const delta = prevRev ? ((d.revenue - prevRev) / prevRev * 100).toFixed(0) : null;
-  document.getElementById('q-kpi').innerHTML = `
-    <div class="metric"><div class="label">Sales</div><div class="value">${d.sales}</div></div>
-    <div class="metric"><div class="label">Revenue</div><div class="value">$${d.revenue.toLocaleString()}</div>${delta?`<div class="delta ${delta>0?'up':'down'}">${delta>0?'+':''}${delta}% vs ${prevQ}</div>`:''}</div>
-    <div class="metric"><div class="label">Net</div><div class="value">$${d.net.toLocaleString()}</div></div>
-    <div class="metric"><div class="label">Avg price</div><div class="value">$${d.avg_price}</div></div>`;
-  // Monthly chart
-  if(qCharts.month) qCharts.month.destroy();
-  const ml = Object.keys(d.monthly); const mr = Object.values(d.monthly).map(m=>m.revenue); const mc = Object.values(d.monthly).map(m=>m.count);
-  qCharts.month = new Chart(document.getElementById('qMonthChart'),{type:'bar',data:{labels:ml,datasets:[{label:'Revenue',data:mr,backgroundColor:'#2d5be3',borderRadius:4,yAxisID:'y'},{label:'Count',data:mc,type:'line',borderColor:'#1a8c5e',pointBackgroundColor:'#1a8c5e',pointRadius:5,tension:0.3,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'$'},grid:{color:'#e8e7e2'}},y1:{position:'right',grid:{display:false}}}}});
-  // Group chart
-  if(qCharts.group) qCharts.group.destroy();
-  const gs = Object.entries(d.groups).slice(0,8);
-  qCharts.group = new Chart(document.getElementById('qGroupChart'),{type:'bar',data:{labels:gs.map(g=>g[0]),datasets:[{data:gs.map(g=>g[1].revenue),backgroundColor:COLORS,borderRadius:4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:ctx=>{const g=gs[ctx.dataIndex];return g[1].count+' items | avg $'+g[1].avg}}}},scales:{x:{title:{display:true,text:'$'}},y:{grid:{display:false},ticks:{font:{size:11}}}}}});
-  // Member chart (top performers across all groups)
-  if(qCharts.member) qCharts.member.destroy();
-  const allMembers = [];
-  Object.entries(d.groups).forEach(([gName,gData])=>{Object.entries(gData.members).forEach(([mName,mData])=>{if(mData.count>=2) allMembers.push({name:mName+' ('+gName+')',avg:mData.avg,count:mData.count,total:mData.total})})});
-  allMembers.sort((a,b)=>b.avg-a.avg);
-  const topM = allMembers.slice(0,10);
-  qCharts.member = new Chart(document.getElementById('qMemberChart'),{type:'bar',data:{labels:topM.map(m=>m.name),datasets:[{label:'Avg price',data:topM.map(m=>m.avg),backgroundColor:COLORS.map(c=>c+'cc'),borderColor:COLORS,borderWidth:1.5,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:ctx=>{const m=topM[ctx.dataIndex];return m.count+' items | total $'+m.total.toFixed(0)}}}},scales:{x:{grid:{display:false},ticks:{maxRotation:45,font:{size:10}}},y:{title:{display:true,text:'Avg price ($)'}}}}});
-  // State chart
-  if(qCharts.state) qCharts.state.destroy();
-  const ss = Object.entries(d.states).slice(0,10);
-  qCharts.state = new Chart(document.getElementById('qStateChart'),{type:'bar',data:{labels:ss.map(s=>s[0]),datasets:[{data:ss.map(s=>s[1].count),backgroundColor:'#2d5be388',borderColor:'#2d5be3',borderWidth:1,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{maxRotation:45,font:{size:10}}},y:{title:{display:true,text:'Orders'}}}}});
-  // Insights
-  document.getElementById('q-insights').innerHTML = '<div class="insight-grid">'+qInsights[q]+'</div>';
+ 
+// === YOY (default, init now) ===
+new Chart(document.getElementById('yoyRevChart'),{type:'bar',data:{labels:['2023','2024','2025'],datasets:[{data:[66.9,1291.71,12268.22],backgroundColor:['#c2c0b6','#85B7EB','#2d5be3'],borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>'$'+ctx.raw.toLocaleString()}}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Revenue ($)'}}}}});
+new Chart(document.getElementById('yoyCountChart'),{type:'bar',data:{labels:['2023','2024','2025'],datasets:[{data:[5,108,755],backgroundColor:['#c2c0b6','#85B7EB','#2d5be3'],borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Sales'}}}}});
+const am=Object.keys(yoyMonthly).sort();
+const tl=am.map(m=>{const[y,mo]=m.split('-');return['J','F','M','A','M','J','J','A','S','O','N','D'][parseInt(mo)-1]+"'"+y.slice(2)});
+new Chart(document.getElementById('yoyTimelineChart'),{type:'bar',data:{labels:tl,datasets:[{data:am.map(m=>yoyMonthly[m].r),backgroundColor:am.map(m=>m<'2024'?'#c2c0b6':m<'2025'?'#85B7EB':'#2d5be3'),borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>'$'+Math.round(ctx.raw)+' | '+yoyMonthly[am[ctx.dataIndex]].c+' sales'}}},scales:{x:{grid:{display:false},ticks:{maxRotation:45,font:{size:9}}},y:{title:{display:true,text:'Revenue ($)'}}}}});
+const gg=['SEVENTEEN','TXT','BOYNEXTDOOR','IVE','ENHYPEN'];
+const yg={SEVENTEEN:{y23:66.9,y24:346.16,y25:814.7},TXT:{y23:0,y24:277,y25:1412.94},BOYNEXTDOOR:{y23:0,y24:236.8,y25:438.68},IVE:{y23:0,y24:160.7,y25:1628},ENHYPEN:{y23:0,y24:0,y25:1040.95}};
+new Chart(document.getElementById('yoyGroupChart'),{type:'bar',data:{labels:gg,datasets:[{label:'2023',data:gg.map(g=>yg[g].y23),backgroundColor:'#c2c0b6',borderRadius:3},{label:'2024',data:gg.map(g=>yg[g].y24),backgroundColor:'#85B7EB',borderRadius:3},{label:'2025',data:gg.map(g=>yg[g].y25),backgroundColor:'#2d5be3',borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{usePointStyle:true,pointStyle:'rectRounded',padding:12}}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Revenue ($)'}}}}});
+new Chart(document.getElementById('yoyAvgChart'),{type:'bar',data:{labels:['2023','2024','2025'],datasets:[{data:[13.38,11.96,16.25],backgroundColor:['#c2c0b6','#85B7EB','#2d5be3'],borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Avg price ($)'},min:0,max:20}}}});
+ 
+// === ANNUAL (lazy) ===
+function initAnnual(){
+  new Chart(document.getElementById('annualChart'),{type:'bar',data:{labels:monthly2025.labels,datasets:[{label:'Rev',data:monthly2025.revenue,backgroundColor:'#2d5be3',borderRadius:4,yAxisID:'y',order:1},{label:'Cnt',data:monthly2025.count,type:'line',borderColor:'#1a8c5e',pointBackgroundColor:'#1a8c5e',pointRadius:4,tension:.3,yAxisID:'y1',order:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{autoSkip:false}},y:{position:'left',title:{display:true,text:'Revenue ($)'}},y1:{position:'right',title:{display:true,text:'Count'},grid:{display:false}}}}});
+  const t=Object.entries(annualGroups).slice(0,10);
+  new Chart(document.getElementById('annualGroupChart'),{type:'bar',data:{labels:t.map(g=>g[0]),datasets:[{data:t.map(g=>g[1].revenue),backgroundColor:C,borderRadius:4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:x=>{const g=t[x.dataIndex];return g[1].count+' items | avg $'+g[1].avg}}}},scales:{x:{title:{display:true,text:'$'}},y:{grid:{display:false}}}}});
+  new Chart(document.getElementById('companyChart'),{type:'doughnut',data:{labels:['HYBE','Starship','SM','JYP','Other'],datasets:[{data:[4497,1628,1389,614,2140],backgroundColor:C.slice(0,5),borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{position:'bottom',labels:{padding:12,usePointStyle:true,pointStyle:'rectRounded'}}}}});
 }
-// Quarterly init deferred to showTab lazy init
-
-// === GROUP DEEP-DIVE ===
-const sel = document.getElementById('groupSelect');
+ 
+// === QUARTERLY (lazy) ===
+let qC={};
+function showQuarter(q,el){
+  document.querySelectorAll('.q-tab').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');
+  const d=qData[q],prev={Q1:null,Q2:'Q1',Q3:'Q2',Q4:'Q3'}[q],delta=prev?((d.revenue-qData[prev].revenue)/qData[prev].revenue*100).toFixed(0):null;
+  document.getElementById('q-kpi').innerHTML=`<div class="metric"><div class="label">Sales</div><div class="value">${d.sales}</div></div><div class="metric"><div class="label">Revenue</div><div class="value">$${d.revenue.toLocaleString()}</div>${delta?`<div class="delta ${delta>0?'up':'down'}">${delta>0?'+':''}${delta}% vs ${prev}</div>`:''}</div><div class="metric"><div class="label">Net</div><div class="value">$${d.net.toLocaleString()}</div></div><div class="metric"><div class="label">Avg</div><div class="value">$${d.avg_price}</div></div>`;
+  if(qC.m)qC.m.destroy();if(qC.g)qC.g.destroy();if(qC.b)qC.b.destroy();
+  const ml=Object.keys(d.monthly),mr=Object.values(d.monthly).map(m=>m.revenue),mc=Object.values(d.monthly).map(m=>m.count);
+  qC.m=new Chart(document.getElementById('qMonthChart'),{type:'bar',data:{labels:ml,datasets:[{data:mr,backgroundColor:'#2d5be3',borderRadius:4,yAxisID:'y'},{data:mc,type:'line',borderColor:'#1a8c5e',pointBackgroundColor:'#1a8c5e',pointRadius:5,tension:.3,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{},y1:{position:'right',grid:{display:false}}}}});
+  const gs=Object.entries(d.groups).slice(0,8);
+  qC.g=new Chart(document.getElementById('qGroupChart'),{type:'bar',data:{labels:gs.map(g=>g[0]),datasets:[{data:gs.map(g=>g[1].revenue),backgroundColor:C,borderRadius:4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:{display:false},ticks:{font:{size:11}}}}}});
+  const mb=[];Object.entries(d.groups).forEach(([gn,gd])=>{Object.entries(gd.members||{}).forEach(([mn,md])=>{if(md.count>=2)mb.push({n:mn+' ('+gn+')',a:md.avg,c:md.count,t:md.total})})});
+  mb.sort((a,b)=>b.a-a.a);const tm=mb.slice(0,10);
+  qC.b=new Chart(document.getElementById('qMemberChart'),{type:'bar',data:{labels:tm.map(m=>m.n),datasets:[{data:tm.map(m=>m.a),backgroundColor:C.map(c=>c+'cc'),borderColor:C,borderWidth:1.5,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:x=>{const m=tm[x.dataIndex];return m.c+' items | $'+m.t.toFixed(0)}}}},scales:{x:{grid:{display:false},ticks:{maxRotation:45,font:{size:10}}},y:{title:{display:true,text:'Avg ($)'}}}}});
+  document.getElementById('q-insights').innerHTML='<div class="insight-grid">'+qInsights[q]+'</div>';
+}
+ 
+// === GROUP (lazy) ===
+const sel=document.getElementById('groupSelect');
 Object.keys(groupMembers).forEach(g=>{const o=document.createElement('option');o.value=g;o.textContent=g;sel.appendChild(o)});
-let gCharts = {};
-function updateGroupView() {
-  const g = sel.value;
-  const gd = annualGroups[g];
-  const members = groupMembers[g] || {};
-  const mEntries = Object.entries(members).sort((a,b)=>b[1].avg-a[1].avg);
-  document.getElementById('group-kpi').innerHTML = `
-    <div class="metric"><div class="label">Items sold</div><div class="value">${gd.count}</div></div>
-    <div class="metric"><div class="label">Total revenue</div><div class="value">$${gd.revenue.toLocaleString()}</div></div>
-    <div class="metric"><div class="label">Avg price</div><div class="value">$${gd.avg}</div></div>
-    <div class="metric"><div class="label">Top member</div><div class="value" style="font-size:1rem">${mEntries.length?mEntries[0][0]:'-'}</div>${mEntries.length?'<div class="delta">avg $'+mEntries[0][1].avg+'</div>':''}</div>`;
-  if(gCharts.avg) gCharts.avg.destroy();
-  if(gCharts.total) gCharts.total.destroy();
-  gCharts.avg = new Chart(document.getElementById('memberAvgChart'),{type:'bar',data:{labels:mEntries.map(m=>m[0]),datasets:[{label:'Avg price',data:mEntries.map(m=>m[1].avg),backgroundColor:COLORS.map(c=>c+'99'),borderColor:COLORS,borderWidth:1.5,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:ctx=>{const m=mEntries[ctx.dataIndex];return m[1].count+' items sold'}}}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Avg price ($)'}}}}});
-  gCharts.total = new Chart(document.getElementById('memberTotalChart'),{type:'bar',data:{labels:mEntries.map(m=>m[0]),datasets:[{label:'Total revenue',data:mEntries.map(m=>m[1].total),backgroundColor:COLORS,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Total revenue ($)'}}}}});
+let gC={};
+function updateGroupView(){
+  const g=sel.value,gd=annualGroups[g]||{count:0,revenue:0,avg:0},m=groupMembers[g]||{},me=Object.entries(m).sort((a,b)=>b[1].avg-a[1].avg);
+  document.getElementById('group-kpi').innerHTML=`<div class="metric"><div class="label">Items</div><div class="value">${gd.count}</div></div><div class="metric"><div class="label">Revenue</div><div class="value">$${(gd.revenue||0).toLocaleString()}</div></div><div class="metric"><div class="label">Avg</div><div class="value">$${gd.avg}</div></div><div class="metric"><div class="label">Top member</div><div class="value" style="font-size:1rem">${me.length?me[0][0]:'-'}</div>${me.length?'<div class="delta">avg $'+me[0][1].avg+'</div>':''}</div>`;
+  if(gC.a)gC.a.destroy();if(gC.t)gC.t.destroy();
+  gC.a=new Chart(document.getElementById('memberAvgChart'),{type:'bar',data:{labels:me.map(x=>x[0]),datasets:[{data:me.map(x=>x[1].avg),backgroundColor:C.map(c=>c+'99'),borderColor:C,borderWidth:1.5,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{afterLabel:x=>me[x.dataIndex][1].count+' items'}}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Avg ($)'}}}}});
+  gC.t=new Chart(document.getElementById('memberTotalChart'),{type:'bar',data:{labels:me.map(x=>x[0]),datasets:[{data:me.map(x=>x[1].total),backgroundColor:C,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Total ($)'}}}}});
 }
-// Group view deferred - called by showTab
-
-// === GEOGRAPHY ===
-function initGeo() {
-const maxGeo = Math.max(...Object.values(geo).map(g=>g.count));
-d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json').then(us=>{
-  const svg = d3.select('#geoMap').append('svg').attr('viewBox','0 0 960 600').attr('width','100%');
-  const path = d3.geoPath(d3.geoAlbersUsa().scale(1280).translate([480,300]));
-  const color = d3.scaleSequential(d3.interpolateBlues).domain([-10,maxGeo*1.3]);
-  const tip = document.getElementById('map-tooltip');
-  svg.selectAll('path').data(topojson.feature(us,us.objects.states).features).join('path')
-    .attr('d',path).attr('fill',d=>{const n=d.properties.name;return geo[n]?color(geo[n].count):'#f0efe8'})
-    .attr('stroke','#fff').attr('stroke-width',0.5)
-    .on('mouseover',function(e,d){
-      const n=d.properties.name;const g=geo[n];
-      d3.select(this).attr('stroke','#333').attr('stroke-width',2);
-      if(g){tip.style.display='block';tip.innerHTML='<b>'+n+'</b><br>'+g.count+' orders | $'+g.revenue.toFixed(0)+'<br>Avg: $'+g.avg.toFixed(2)}
-    }).on('mousemove',function(e){tip.style.left=(e.offsetX+12)+'px';tip.style.top=(e.offsetY-20)+'px'})
-    .on('mouseout',function(){d3.select(this).attr('stroke','#fff').attr('stroke-width',0.5);tip.style.display='none'});
-});
-const qStates = Object.entries(geo).filter(([_,v])=>v.count>=3).sort((a,b)=>b[1].avg-a[1].avg);
-if(qStates.length) document.getElementById('highAvgState').textContent=qStates[0][0]+' $'+qStates[0][1].avg.toFixed(2);
-
-const topStates = Object.entries(geo).slice(0,15);
-new Chart(document.getElementById('stateBarChart'),{type:'bar',data:{labels:topStates.map(s=>s[0]),datasets:[{data:topStates.map(s=>s[1].count),backgroundColor:'#2d5be388',borderColor:'#2d5be3',borderWidth:1,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{maxRotation:45,autoSkip:false,font:{size:10}}},y:{title:{display:true,text:'Orders'}}}}});
+ 
+// === GEO (lazy) ===
+function initGeo(){
+  d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json').then(us=>{
+    const svg=d3.select('#geoMap').append('svg').attr('viewBox','0 0 960 600').attr('width','100%');
+    const path=d3.geoPath(d3.geoAlbersUsa().scale(1280).translate([480,300]));
+    const color=d3.scaleSequential(d3.interpolateBlues).domain([-10,163*1.3]);
+    const tip=document.getElementById('map-tooltip');
+    svg.selectAll('path').data(topojson.feature(us,us.objects.states).features).join('path')
+      .attr('d',path).attr('fill',d=>{const n=d.properties.name;return geo[n]?color(geo[n].count):'#f0efe8'})
+      .attr('stroke','#fff').attr('stroke-width',.5)
+      .on('mouseover',function(e,d){const n=d.properties.name,g=geo[n];d3.select(this).attr('stroke','#333').attr('stroke-width',2);if(g){tip.style.display='block';tip.innerHTML='<b>'+n+'</b><br>'+g.count+' orders | $'+g.revenue.toFixed(0)+'<br>Avg: $'+g.avg.toFixed(2)}})
+      .on('mousemove',function(e){tip.style.left=(e.offsetX+12)+'px';tip.style.top=(e.offsetY-20)+'px'})
+      .on('mouseout',function(){d3.select(this).attr('stroke','#fff').attr('stroke-width',.5);tip.style.display='none'});
+  });
+  const qs=Object.entries(geo).filter(([_,v])=>v.count>=3).sort((a,b)=>b[1].avg-a[1].avg);
+  if(qs.length)document.getElementById('highAvgState').textContent=qs[0][0]+' $'+qs[0][1].avg.toFixed(2);
+  const ts=Object.entries(geo).slice(0,15);
+  new Chart(document.getElementById('stateBarChart'),{type:'bar',data:{labels:ts.map(s=>s[0]),datasets:[{data:ts.map(s=>s[1].count),backgroundColor:'#2d5be388',borderColor:'#2d5be3',borderWidth:1,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{maxRotation:45,autoSkip:false,font:{size:10}}},y:{title:{display:true,text:'Orders'}}}}});
 }
-
-// === PRICING ===
-function initPricing() {
-new Chart(document.getElementById('priceDistChart'),{type:'bar',data:{labels:priceDist.labels,datasets:[{data:priceDist.data,backgroundColor:COLORS.slice(0,7),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Items'}}}}});
-new Chart(document.getElementById('feeDonut'),{type:'doughnut',data:{labels:['Net proceeds','Mercari fee','Other'],datasets:[{data:[10893,1338,37],backgroundColor:['#1a8c5e','#c93a3a','#9c9a92'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{position:'bottom',labels:{padding:12,usePointStyle:true,pointStyle:'rectRounded'}}}}});
+ 
+// === PRICING (lazy) ===
+function initPricing(){
+  new Chart(document.getElementById('priceDistChart'),{type:'bar',data:{labels:priceDist.labels,datasets:[{data:priceDist.data,backgroundColor:C.slice(0,7),borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{title:{display:true,text:'Items'}}}}});
+  new Chart(document.getElementById('feeDonut'),{type:'doughnut',data:{labels:['Net proceeds','Mercari fees'],datasets:[{data:[12228,1399],backgroundColor:['#1a8c5e','#c93a3a'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{position:'bottom',labels:{padding:12,usePointStyle:true,pointStyle:'rectRounded'}}}}});
 }
 </script>
 </body>
